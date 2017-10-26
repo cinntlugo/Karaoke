@@ -1,14 +1,14 @@
 [
   {
-    "nombre": "Wild - Acoustic",
-    "artista": "JONES",
+    "nombre": "Baby No",
+    "artista": "Danny Ocean",
     "portada": "assets/imgs/album1.jpg",
-    "turno": "Sandra Paredes"
+    "turno": "Alejandra Cuellar"
   },
   {
-    "nombre": "Wild - Acoustic",
-    "artista": "JONES",
+    "nombre": "Thunder",
+    "artista": "Imagine Dragons",
     "portada": "./assets/imgs/album1.jpg",
-    "turno": "Sandra Paredes"
+    "turno": "Cinthya Lugo"
   }
 ]
