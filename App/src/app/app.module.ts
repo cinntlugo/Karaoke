@@ -8,16 +8,19 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { NuevaReservacionPage } from '../pages/nuevaReservacion/nuevaReservacion';
 
 import { MenuService } from '../pages/menu/menu.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
 import { KaraokeService } from '../pages/karaoke/karaoke.service';
 
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DashboardPage
+    DashboardPage,
+    NuevaReservacionPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { KaraokeService } from '../pages/karaoke/karaoke.service';
   entryComponents: [
     MyApp,
     HomePage,
-    DashboardPage
+    DashboardPage,
+    NuevaReservacionPage
   ],
   providers: [
     StatusBar,

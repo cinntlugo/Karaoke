@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar color ="reser">
+    <ion-title>Nueva Reservación</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="outer-content" id="crear">
+  <ion-list>
+    <ion-item>
+      <ion-label stacked id="label">Nombre del evento</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="evento.month"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+     <ion-label>Hora de inicio</ion-label>
+     <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.timeStarts"></ion-datetime>
+   </ion-item>
+
+   <ion-item>
+     <ion-label>Hora de salida</ion-label>
+     <ion-datetime displayFormat="h:mm A" [(ngModel)]="evento.timeEnds"></ion-datetime>
+   </ion-item>
+
+   <ion-list-header>
+      Amigos
+    </ion-list-header>
+    <ion-item>
+     <ion-label>Jon Snow</ion-label>
+     <ion-checkbox color ="reser" checked="true"></ion-checkbox>
+   </ion-item>
+
+   <ion-item>
+     <ion-label>Daenerys Targaryen</ion-label>
+     <ion-checkbox color="reser" checked="true"></ion-checkbox>
+   </ion-item>
+
+   <ion-item>
+     <ion-label>Arya Stark</ion-label>
+     <ion-checkbox color="reser" checked="true"></ion-checkbox>
+   </ion-item>
+   <ion-item>
+  </ion-item>
+
+   <button ion-button round color ="reser" (click)="aReser()" full>
+     Crear
+   </button>
+
+  </ion-list>
+</ion-content>
