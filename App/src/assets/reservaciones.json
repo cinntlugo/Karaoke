@@ -1,15 +1,15 @@
 [
   {
-    "nombre": "Nombre del evento",
-    "fecha": "12/08/2017",
-    "hora": "14:30",
-    "personas": 5
+    "nombre": "Cumleaños Armando",
+    "fecha": "09/08/2017",
+    "hora": "17:00",
+    "personas": 30
   },
   {
-    "nombre": "Nombre del evento",
-    "fecha": "12/08/2017",
-    "hora": "14:30",
-    "personas": 5
+    "nombre": "Graduacion",
+    "fecha": "05/12/2017",
+    "hora": "15:30",
+    "personas": 100
   },
   {
     "nombre": "Nombre del evento",
