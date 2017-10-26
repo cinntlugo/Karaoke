@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "Wild - Acoustic",
+    "artista": "JONES",
+    "portada": "assets/imgs/album1.jpg",
+    "turno": "Sandra Paredes"
+  },
+  {
+    "nombre": "Wild - Acoustic",
+    "artista": "JONES",
+    "portada": "./assets/imgs/album1.jpg",
+    "turno": "Sandra Paredes"
+  }
+]

@@ -1,0 +1,42 @@
+page-home {
+
+  .scroll-content {
+    padding-top: 0;
+  }
+
+  .login {
+    padding-top: 20px;
+    text-align: center;
+
+    p {
+      font-family: $SourceSansPro;
+      font-weight: 800;
+      color: color($colors, blanco);
+      font-size: 24px;
+      margin-bottom: 100px;
+    }
+
+    button {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 10px solid color($colors, blanco);
+      background-color: transparent;
+      text-align: center;
+
+      ion-icon {
+        font-size: 64px;
+        color: color($colors, blanco);
+      }
+    }
+
+    label {
+      display: block;
+      color: color($colors, blanco);
+      text-align: center;
+      font-family: $SourceSansPro;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+  }
+}

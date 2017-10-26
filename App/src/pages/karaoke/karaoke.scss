@@ -1,0 +1,58 @@
+page-karaoke {
+
+  .navbar {
+    padding: 0 1em;
+  }
+
+  .pista-actual {
+    padding: 1em 2em;
+    color: color($colors, blanco);
+  }
+
+  .portada-album {
+    width: 5em;
+    height: 5em;
+    border-radius: 2px;
+    background-color: #333333;
+    object-fit: cover;
+  }
+
+  .nombre-cancion {
+    font-family: $SourceSansPro;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0 0 0.5em;
+  }
+
+  .nombre-artista {
+    margin: 0.5em 0;
+  }
+
+  .lista-reproduccion {
+    padding: 1em;
+
+    .turno {
+      padding: 1em;
+      border-top: 1px solid #ececec;
+      border-bottom: 1px solid #ececec;
+      border: 3px solid color($colors, blanco);
+      border-radius: 5px;
+      color: color($colors, blanco);
+      margin: 1.5em;
+    }
+
+    .nombre-cancion {
+      font-size: 18px;
+    }
+
+    .nombre-artista {
+      font-size: 16px;
+    }
+
+    .nombre-turno {
+      font-size: 16px;
+      margin: 0;
+      color: #7028E4;
+    }
+  }
+}

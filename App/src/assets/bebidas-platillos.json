@@ -1,0 +1,30 @@
+{
+  "bebidas": [
+    {
+      "nombre": "Nombre de la Bebida",
+      "precio": 125.00
+    },
+    {
+      "nombre": "Nombre de la Bebida",
+      "precio": 125.00
+    },
+    {
+      "nombre": "Nombre de la Bebida",
+      "precio": 125.00
+    }
+  ],
+  "platillos": [
+    {
+      "nombre": "Nombre del Platillo",
+      "precio": 85.00
+    },
+    {
+      "nombre": "Nombre del Platillo",
+      "precio": 85.00
+    },
+    {
+      "nombre": "Nombre del Platillo",
+      "precio": 85.00
+    }
+  ]
+}

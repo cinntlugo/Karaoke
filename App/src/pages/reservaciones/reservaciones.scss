@@ -1,0 +1,44 @@
+page-reservaciones {
+  .lista-reservaciones {
+    padding: 2em 1em;
+  }
+
+  .reservacion {
+    width: 90%;
+    color: color($colors, blanco);
+    border: 3px solid color($colors, blanco);
+    border-radius: 5px;
+    padding: 1em;
+    margin: 0 auto 2em;
+    cursor: pointer;
+
+    .nombre-reservacion {
+      font-family: $SourceSansPro;
+      font-weight: 800;
+      margin: 0 0 0.5em;
+    }
+
+    .fecha-reservacion {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.73);
+      font-style: italic;
+      margin: 0 0 0.5em;
+    }
+
+    .mesa-reservacion {
+      font-family: $OpenSans;
+      margin: 0 0 0.5em;
+    }
+
+  }
+
+  .acciones-reservacion {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+
+    button {
+      color: color($colors, blanco);
+    }
+  }
+}
