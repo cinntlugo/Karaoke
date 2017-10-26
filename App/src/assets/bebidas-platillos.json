@@ -1,12 +1,12 @@
 {
   "bebidas": [
     {
-      "nombre": "Nombre de la Bebida",
-      "precio": 125.00
+      "nombre": "Limonada",
+      "precio": 53.00
     },
     {
-      "nombre": "Nombre de la Bebida",
-      "precio": 125.00
+      "nombre": "Malteada",
+      "precio": 68.00
     },
     {
       "nombre": "Nombre de la Bebida",
@@ -15,12 +15,12 @@
   ],
   "platillos": [
     {
-      "nombre": "Nombre del Platillo",
-      "precio": 85.00
+      "nombre": "Nachos",
+      "precio": 60.00
     },
     {
-      "nombre": "Nombre del Platillo",
-      "precio": 85.00
+      "nombre": "Papas gajo",
+      "precio": 41.50
     },
     {
       "nombre": "Nombre del Platillo",
