@@ -40,4 +40,7 @@ export class MenuPage implements OnInit {
     this.navCtrl.push(CuentaPage);
   }
 
+  doLogout() {
+    // Implementar lógica de logout
+  }
 }
