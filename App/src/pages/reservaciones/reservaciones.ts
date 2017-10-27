@@ -36,4 +36,8 @@ export class ReservacionesPage implements OnInit {
     console.log('ionViewDidLoad ReservacionesPage');
   }
 
+  doLogout() {
+    // Implementar lógica de logout
+  }
+
 }
