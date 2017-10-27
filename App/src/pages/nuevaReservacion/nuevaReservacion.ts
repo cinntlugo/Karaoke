@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReservacionesPage } from '../reservaciones/reservaciones';
+import { NuevaReservacionService } from './nuevaReservacion.service';
 
 /**
- * Generated class for the ReservacionPage page.
+ * Generated class for the nuevaReservacionPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -27,5 +28,9 @@ export class NuevaReservacionPage {
     month: '',
     timeStarts: '',
     timeEnds: '',
+  }
+  
+  crearReservacion(){
+    //Logica de crear evento y agregarlo
   }
 }
