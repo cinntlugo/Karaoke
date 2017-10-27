@@ -2,13 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { KaraokeService } from './karaoke.service';
-
-/**
- * Generated class for the KaraokePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CancionesPage } from '../canciones/canciones';
 
 @IonicPage()
 @Component({
@@ -43,6 +37,10 @@ export class KaraokePage implements OnInit {
 
   doNavigate() {
     // Implementar lógica para playlists
+  }
+
+  cantar(){
+    this.navCtrl.push(CancionesPage);
   }
 
 }

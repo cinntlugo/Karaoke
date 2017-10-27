@@ -13,6 +13,7 @@ export class HomePage {
   }
 
   login() {
+    //Método para conectar con Facebook
     // TODO: Usar un servicio para hacer el login
     this.navCtrl.push(DashboardPage);
   }

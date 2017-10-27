@@ -14,13 +14,13 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'dashboard.html'
 })
 export class DashboardPage {
-
+  /*Llamada a las páginas correspondientes*/
   karaokeRoot = 'KaraokePage'
   menuRoot = 'MenuPage'
   reservacionesRoot = 'ReservacionesPage'
 
   private activeIndex: number;
-
+  /*Modulo que permite la navegación entre páginas*/
   constructor(public navCtrl: NavController) {
     this.activeIndex = 2;
   }

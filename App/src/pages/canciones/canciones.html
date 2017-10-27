@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar class="navbar">
+    <ion-buttons start>
+      <button (click)="doLogout()" ion-button clear><ion-icon name="log-out"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Lista de canciones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div  class="bkg">
+    <div class="lista-cantar" *ngIf="lista">
+      <div class="turno" *ngFor="let cancion of lista">
+          <p class="nombre-cancion">{{cancion.nombre}}</p>
+          <p class="nombre-artista">{{cancion.artista}}</p>
+          <button (click)="inscribirLista()" ion-button clear><ion-icon name ='microphone'></ion-icon></button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
