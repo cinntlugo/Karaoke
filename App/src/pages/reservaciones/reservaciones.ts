@@ -23,7 +23,7 @@ export class ReservacionesPage implements OnInit {
   }
 
   nueva(){
-    this.navCtrl.push(NuevaReservacionPage);
+    this.navCtrl.push("NuevaReservacionPage");
   }
 
   ngOnInit (): void {
