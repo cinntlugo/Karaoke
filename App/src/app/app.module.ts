@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { NuevaReservacionPage } from '../pages/nuevaReservacion/nuevaReservacion';
 import { CancionesPage } from '../pages/canciones/canciones';
+import { CuentaPage } from '../pages/cuenta/cuenta';
+
 
 import { MenuService } from '../pages/menu/menu.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
@@ -22,7 +24,8 @@ import { KaraokeService } from '../pages/karaoke/karaoke.service';
     HomePage,
     DashboardPage,
     NuevaReservacionPage,
-    CancionesPage
+    CancionesPage,
+    CuentaPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { KaraokeService } from '../pages/karaoke/karaoke.service';
     HomePage,
     DashboardPage,
     NuevaReservacionPage,
-    CancionesPage
+    CancionesPage,
+    CuentaPage
   ],
   providers: [
     StatusBar,

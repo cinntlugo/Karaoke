@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MenuPage } from '../menu/menu';
 
 /**
  * Generated class for the ReservacionPage page.
@@ -10,21 +11,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-canciones',
-  templateUrl: 'canciones.html',
+  selector: 'page-cuenta',
+  templateUrl: 'cuenta.html',
 })
-export class CancionesPage {
+export class CuentaPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CancionesPage');
+    console.log('ionViewDidLoad CuentaPage');
   }
 
-  inscribirLista(){
-    //Implementar método para inscribir una
-    //canción a la queue del Karaoke
-  }
 }

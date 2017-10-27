@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { MenuService } from './menu.service';
-
+import { CuentaPage } from '../cuenta/cuenta';
 /**
  * Generated class for the MenuPage page.
  *
@@ -30,6 +30,14 @@ export class MenuPage implements OnInit {
     this.servicio.bebidasYPlatillos ().then ((respuesta) =>  {
       this.menu = respuesta;
     });
+  }
+
+  agregar(){
+    //Implementar método para agregar productos a la cuenta
+  }
+
+  cuenta(){
+    this.navCtrl.push(CuentaPage);
   }
 
 }

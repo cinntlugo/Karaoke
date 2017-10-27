@@ -11,6 +11,9 @@
       <button (click)="doLogout()" ion-button clear><ion-icon name="log-out"></ion-icon></button>
     </ion-buttons>
     <ion-title>Menú</ion-title>
+    <ion-buttons start>
+      <button (click)="cuenta()" ion-button clear><ion-icon name="card"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -24,6 +27,7 @@
         <div class="item" *ngFor="let producto of menu.platillos">
           <h2 class="nombre-item">{{producto.nombre}}</h2>
           <p class="precio-item">${{producto.precio}}</p>
+          <button (click)="agregar()"><ion-icon name ='add-circle'></ion-icon></button>
         </div>
       </div>
     </div>
@@ -34,6 +38,7 @@
         <div class="item" *ngFor="let producto of menu.bebidas">
           <h2 class="nombre-item">{{producto.nombre}}</h2>
           <p class="precio-item">${{producto.precio}}</p>
+          <button (click)="agregar()"><ion-icon name ='add-circle'></ion-icon></button>
         </div>
       </div>
     </div>

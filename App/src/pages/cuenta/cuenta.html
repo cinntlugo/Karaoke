@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar class="navbar">
+    <ion-buttons start>
+      <button (click)="doLogout()" ion-button clear><ion-icon name="log-out"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Cuenta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div  class="bkg">
+    <div class="cuenta" *ngIf="lista">
+      <div class="productos" *ngFor="let producto of cuenta">
+          <p class="nombre-cliente">{{producto.cliente}}</p>
+          <p class="mesa-cliente">{{producto.mesa}}</p>
+          <p class="nombre-producto">{{producto.nombre}}</p>
+          <p class="precio-producto">{{producto.precio}}</p>
+          <h3>Total:</h3>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>
