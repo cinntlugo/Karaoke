@@ -8,14 +8,14 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DashboardPage } from '../pages/dashboard/dashboard';
-import { NuevaReservacionPage } from '../pages/nuevaReservacion/nuevaReservacion';
-import { CancionesPage } from '../pages/canciones/canciones';
 import { CuentaPage } from '../pages/cuenta/cuenta';
 
 
 import { MenuService } from '../pages/menu/menu.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
 import { KaraokeService } from '../pages/karaoke/karaoke.service';
+import { CancionesService } from '../pages/canciones/canciones.service';
+import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservacion.service';
 
 
 @NgModule({
@@ -23,8 +23,6 @@ import { KaraokeService } from '../pages/karaoke/karaoke.service';
     MyApp,
     HomePage,
     DashboardPage,
-    NuevaReservacionPage,
-    CancionesPage,
     CuentaPage
   ],
   imports: [
@@ -37,8 +35,6 @@ import { KaraokeService } from '../pages/karaoke/karaoke.service';
     MyApp,
     HomePage,
     DashboardPage,
-    NuevaReservacionPage,
-    CancionesPage,
     CuentaPage
   ],
   providers: [
@@ -47,7 +43,9 @@ import { KaraokeService } from '../pages/karaoke/karaoke.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MenuService,
     ReservacionesService,
-    KaraokeService
+    KaraokeService,
+    CancionesService,
+    NuevaReservacionService
   ]
 })
 export class AppModule {}
