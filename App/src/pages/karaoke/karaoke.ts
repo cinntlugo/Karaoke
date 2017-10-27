@@ -40,7 +40,7 @@ export class KaraokePage implements OnInit {
   }
 
   cantar(){
-    this.navCtrl.push(CancionesPage);
+    this.navCtrl.push("CancionesPage");
   }
 
 }
