@@ -10,7 +10,7 @@
   <ion-list>
     <ion-item>
       <ion-label stacked id="label">Nombre del evento</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="evento.nombre" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Fecha</ion-label>
@@ -32,23 +32,23 @@
     </ion-list-header>
     <ion-item>
      <ion-label>Jon Snow</ion-label>
-     <ion-checkbox color ="reser" checked="true"></ion-checkbox>
+     <ion-checkbox checked="true"></ion-checkbox>
    </ion-item>
 
    <ion-item>
      <ion-label>Daenerys Targaryen</ion-label>
-     <ion-checkbox color="reser" checked="true"></ion-checkbox>
+     <ion-checkbox checked="true"></ion-checkbox>
    </ion-item>
 
    <ion-item>
      <ion-label>Arya Stark</ion-label>
-     <ion-checkbox color="reser" checked="true"></ion-checkbox>
+     <ion-checkbox checked="true"></ion-checkbox>
    </ion-item>
    <ion-item>
   </ion-item>
 
-   <button ion-button round color ="reser" (click)="crearReservacion()" full>
-     Crear
+   <button ion-button round (click)="crearReservacion()" >
+     Crear Reservación
    </button>
 
   </ion-list>
