@@ -17,7 +17,7 @@ import { MenuService } from '../menu/menu.service'
 })
 export class CuentaPage implements OnInit {
 
-  ordenados: JSON[];
+  ordenados;
   total: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService) {

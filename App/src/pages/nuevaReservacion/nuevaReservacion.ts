@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-//import { ReservacionesPage } from '../reservaciones/reservaciones';
+import { ReservacionesPage } from '../reservaciones/reservaciones';
 import { ReservacionesService } from '../reservaciones/reservaciones.service';
 
 
