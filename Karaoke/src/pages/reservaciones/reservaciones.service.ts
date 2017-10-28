@@ -8,7 +8,7 @@ export class ReservacionesService {
 
   constructor(private http: Http) { }
 
-  getReservaciones (): Observable<JSON[]> {
+  reservaciones (): Observable<JSON[]> {
     return this.http.get(`assets/reservaciones.json`).map ((response) => {
       return response.json ();
     });

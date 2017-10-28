@@ -12,15 +12,15 @@ import { ReservacionesService } from './reservaciones.service';
 export class ReservacionesComponent implements OnInit {
   title = 'Reservaciones';
 
-  lista: JSON[];
+  reservaciones: JSON[];
 
   constructor (private router: Router, private servicio: ReservacionesService) {
 
   }
 
   ngOnInit () {
-    this.servicio.getReservaciones ().subscribe ((respuesta) => {
-      this.lista = respuesta;
+    this.servicio.reservaciones ().subscribe ((respuesta) => {
+      this.reservaciones = respuesta;
     });
   }
 }

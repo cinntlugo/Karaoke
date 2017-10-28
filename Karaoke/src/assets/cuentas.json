@@ -2,20 +2,13 @@
   {
     "mesa": "6",
     "cliente": "Ilse Mejia",
-    "hora": "18:00"
-  }
-],
-"mesas": [
-  {
-    "producto": "Hamburguesa",
-    "precio": "$120"
+    "hora": "18:00",
+    "total": 538
   },
   {
-    "producto": "Refresco Lata",
-    "precio": "$25"
-  },
-  {
-    "producto": "Nachos",
-    "precio": "$56"
+    "mesa": "1",
+    "cliente": "Andrea Gonzalez",
+    "hora": "20:00",
+    "total": 1200
   }
 ]

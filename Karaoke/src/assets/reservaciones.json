@@ -13,16 +13,4 @@
       "inicio": "20:00",
       "salida": "23:30"
     }
-  ],
-  "karaoke": [
-    {
-      "num":"1",
-      "nombre":"Not Today",
-      "cliente":"Ilse Mejía"
-    },
-    {
-      "num":"2",
-      "nombre":"Young Dumb & Broke",
-      "cliente":"Alejandra Cuellar"
-    }
   ]

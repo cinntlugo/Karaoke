@@ -64,7 +64,7 @@ td {
 }
 
 .topnav a.active {
-    background-color: #4CAF50;
+    background-color: #ddd;
     color: white;
 }
 
@@ -74,4 +74,13 @@ td {
   text-decoration: none;
   background-color: #9A2EFE;
   color: white;
+}
+
+.button{
+  font-family: $SourceSansPro;
+  background-color: Transparent;
+  color: white;
+  border: 2px solid #e7e7e7;
+  font-size: 24px;
+  border-radius: 12px;
 }
