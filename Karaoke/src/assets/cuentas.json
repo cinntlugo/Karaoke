@@ -1,0 +1,21 @@
+[
+  {
+    "mesa": "6",
+    "cliente": "Ilse Mejia",
+    "hora": "18:00"
+  }
+],
+"mesas": [
+  {
+    "producto": "Hamburguesa",
+    "precio": "$120"
+  },
+  {
+    "producto": "Refresco Lata",
+    "precio": "$25"
+  },
+  {
+    "producto": "Nachos",
+    "precio": "$56"
+  }
+]

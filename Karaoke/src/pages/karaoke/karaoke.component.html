@@ -1,0 +1,35 @@
+<div class="bkg">
+				<div class="c-accordion">
+
+					<h1>Karaoke</h1>
+          <div class="row spaced">
+            <div class="col xs2 padded-1">
+              <p>No.</p>
+            </div>
+            <div class="col xs2 padded-1">
+              <p>Nombre</p>
+            </div>
+            <div class="col xs2  padded-1">
+              <p>Artista</p>
+            </div>
+            <div class="col xs2 padded-1">
+              <p>Cliente</p>
+            </div>
+            <div class="col xs2 padded-1">
+              <p>Reproducir</p>
+            </div>
+            <div class="col xs2 padded-1">
+              <p>Borrar</p>
+            </div>
+          </div>
+          <div class="row spaced item" *ngFor="let cancion of lista">
+            <div class="col xs2 padded-1">{{cancion.num}}</div>
+
+            <div class="col xs2 padded-1">{{cancion.nombre}}</div>
+              <div class="col xs2 padded-1">{{cancion.artista}}</div>
+            <div class="col xs2 padded-1">{{cancion.cliente}}</div>
+            <div class="col xs2 padded-1"><button type="submit"><img src="assets/img/play.png" width="20" height="20" alt="x" /></button></div>
+            <div class="col xs2 padded-1"><button type="submit"><img src="assets/img/delete.png" width="20" height="20" alt="x" /></button></div>
+          </div>
+				</div>
+			</div>

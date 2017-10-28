@@ -1,0 +1,25 @@
+[
+  {
+    "fecha": "17/10/2017",
+    "total": "$8000"
+  },
+  {
+    "fecha": "19/10/2017",
+    "total": "$14000"
+  },
+  {
+    "fecha": "20/10/2017",
+    "total": "$11450"
+  }
+],
+"alimentos"	:[
+  {
+    "nombre": "Nachos",
+    "precio" : 50
+  },
+  {
+    "nombre": "Refresco",
+    "precio" : 30
+  }
+
+]
