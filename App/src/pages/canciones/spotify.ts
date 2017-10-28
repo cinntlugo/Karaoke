@@ -12,7 +12,7 @@ export class Spotify {
 
   public canciones(token: string) {
       let headers = new Headers();
-      headers.append('authorization', `Bearer ${token}`);
+      headers.append('Authorization', `Bearer ${token}`);
       return this.http.get(`https://api.spotify.com/v1/me/tracks}`, {headers: headers}).map ((response) => {
         return response.json ();
       });
