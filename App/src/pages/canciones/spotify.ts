@@ -10,7 +10,7 @@ export class Spotify {
   private token: string;
 
   constructor(public http: Http) {
-    this.token ='BQDI1FOo-No_hVJD_CyoH4COHnebeBPxgc8Pb-Af-tWkz1_8PFAUoGDriU4q6FDyGcAyiVzZtM23RoP9XbAJkJ_0Bl6lJK2djXZPCVKGjyQ_lnQgU1ObA-sQSBfIwiqXJdePMcrZseXx-dvqWzhJrow';
+    this.token ='BQDyxUGbdzpTE7GvEAw0j7Rx_FvkGtNGCHBMKOfuOc2WPDWMmtlaT-il_1sl8CHaAqdRYF5o2BEdngkrhFoOZr5hu12TiuZpI50-gMMH7zb0uyr40zP5v4gVhYs-C8gN6RqEyP8UwPSO6beZwn72gFE';
   }
 
   public canciones() {
