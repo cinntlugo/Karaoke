@@ -12,6 +12,8 @@ td {
 .title{
   font-family: $SourceSansPro;
   color: #fff;
+  padding-left: 90px;
+  padding-top: 20px;
 }
 
 .row {
@@ -52,7 +54,7 @@ td {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -64,4 +66,12 @@ td {
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+.header a{
+  font-family: $SourceSansPro;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #9A2EFE;
+  color: white;
 }
