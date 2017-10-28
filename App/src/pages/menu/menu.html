@@ -38,7 +38,7 @@
         <div class="item" *ngFor="let producto of menu.bebidas">
           <h2 class="nombre-item">{{producto.nombre}}</h2>
           <p class="precio-item">${{producto.precio}}</p>
-          <button (click)="agregar(producto)"><ion-icon name ='add-circle'></ion-icon></button>
+          <button ion-button clear item-end (click)="agregar(producto)"><ion-icon name ='add-circle'></ion-icon></button>
         </div>
       </div>
     </div>
