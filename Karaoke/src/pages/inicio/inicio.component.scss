@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro:400,700,900');
+
+$OpenSans: "Open Sans", sans-serif;
+$SourceSansPro: "Source Sans Pro", sans-serif;
+
+.inicio-sesion {
+  font-family: $SourceSansPro;
+  font-weight: 800;
+  font-size: 50px;
+  margin: 0 0 0.5em;
+  color: white;
+}
+
+.textarea {
+    width: 300px;
+    height: 45px;
+    font-family: $SourceSansPro;
+    text-align: center;
+}
+
+.button{
+  font-family: $SourceSansPro;
+  background-color: Transparent;
+  color: black;
+  border: 2px solid #e7e7e7;
+  font-size: 24px;
+  border-radius: 12px;
+}
+
+.button:hover{background-color: #e7e7e7;}
+
+.header{
+  color: white;
+  font-family: $SourceSansPro;
+}
