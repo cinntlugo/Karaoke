@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuPage } from '../menu/menu';
+//import { MenuPage } from '../menu/menu';
 
 /**
  * Generated class for the ReservacionPage page.
