@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReservacionesPage } from '../reservaciones/reservaciones';
 import { NuevaReservacionService } from './nuevaReservacion.service';
@@ -17,8 +17,6 @@ import { NuevaReservacionService } from './nuevaReservacion.service';
 })
 export class NuevaReservacionPage implements OnInit {
 
-  evento: JSON[];
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -35,5 +33,9 @@ export class NuevaReservacionPage implements OnInit {
 
   crearReservacion(){
     //Logica de crear evento y agregarlo
+  }
+
+  onInit(){
+    //
   }
 }

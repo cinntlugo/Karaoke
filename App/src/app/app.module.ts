@@ -15,7 +15,6 @@ import { MenuService } from '../pages/menu/menu.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
 import { KaraokeService } from '../pages/karaoke/karaoke.service';
 import { CancionesService } from '../pages/canciones/canciones.service';
-import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservacion.service';
 
 
 @NgModule({
@@ -45,7 +44,6 @@ import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservac
     ReservacionesService,
     KaraokeService,
     CancionesService,
-    NuevaReservacionService
   ]
 })
 export class AppModule {}
