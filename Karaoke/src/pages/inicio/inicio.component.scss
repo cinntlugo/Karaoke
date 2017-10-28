@@ -16,20 +16,23 @@ $SourceSansPro: "Source Sans Pro", sans-serif;
     height: 45px;
     font-family: $SourceSansPro;
     text-align: center;
+    border-radius: 15px;
 }
 
 .button{
   font-family: $SourceSansPro;
   background-color: Transparent;
-  color: black;
+  color: white;
   border: 2px solid #e7e7e7;
-  font-size: 24px;
+  font-size: 28px;
   border-radius: 12px;
 }
 
-.button:hover{background-color: #e7e7e7;}
+.button:hover{background-color: #BDBDBD;}
 
 .header{
   color: white;
   font-family: $SourceSansPro;
+  font-weight: bold;
+  text-decoration: none;
 }

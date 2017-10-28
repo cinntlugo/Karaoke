@@ -13,4 +13,8 @@ export class InicioComponent {
   constructor (private router: Router) {
 
   }
+
+  redirect(pagename: string) {
+    this.router.navigate(['./admin/'+pagename]);
+  }
 }
