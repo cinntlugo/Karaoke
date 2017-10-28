@@ -29,7 +29,7 @@ export class CancionesPage implements OnInit {
       this.actual = respuesta;
     });
 
-    this.spotify.canciones("BQBzXr0FduASMTa3-mFWe5X75OJgd30HZmQ1CiGlLsuNRoID8A9w3JPeZASOnEoaGF51SXWA8-DvqMp0a301QYBntlGUsPqqzDg6JaASncHJzcOLIJFeGFEBgEHg_IA_X6J2LigneZwGI11I5jQ").subscribe((tracks) => {
+    this.spotify.canciones().subscribe((tracks) => {
       console.log(tracks);
     });
 
