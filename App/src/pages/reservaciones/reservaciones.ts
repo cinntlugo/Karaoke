@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReservacionesService } from './reservaciones.service';
 import { NuevaReservacionPage } from '../nuevaReservacion/nuevaReservacion';
 
-/**
- * Generated class for the ReservacionesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-reservaciones',
@@ -38,6 +31,10 @@ export class ReservacionesPage implements OnInit {
 
   doLogout() {
     // Implementar lógica de logout
+  }
+
+  eliminar (reservacion) {
+    this.reservaciones = this.servicio.eliminar (reservacion);
   }
 
 }

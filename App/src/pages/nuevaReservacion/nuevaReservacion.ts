@@ -1,14 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReservacionesPage } from '../reservaciones/reservaciones';
-import { NuevaReservacionService } from './nuevaReservacion.service';
+import { ReservacionesService } from '../reservaciones/reservaciones.service';
 
-/**
- * Generated class for the nuevaReservacionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -17,27 +11,34 @@ import { NuevaReservacionService } from './nuevaReservacion.service';
 })
 export class NuevaReservacionPage implements OnInit {
 
-  public evento: JSON[];
+  evento = {
+    nombre:'',
+    month: '',
+    timeStarts: '',
+    timeEnds: '',
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, servicio:NuevaReservacionService) {
-  }
-
-  ngOnInit (): void {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: ReservacionesService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuevaReservacionPage');
   }
 
-  evento = {
-    nombre:'',
-    month: '',
-    timeStarts: '',
-    timeEnds: '',
+  ngOnInit () {
+
   }
 
   crearReservacion(){
     //Logica de crear evento y agregarlo
+    this.servicio.agregar ({
+      nombre: (<HTMLInputElement>document.querySelectorAll("input[name='nombre']")[0]).value,
+      fecha: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[0]).innerText,
+      hora: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[1]).innerText,
+      timeEnds: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[2]).innerText,
+      personas: (<HTMLCollection> document.querySelectorAll(".item-checkbox-checked")).length
+    });
+
+    this.navCtrl.pop ();
   }
 }

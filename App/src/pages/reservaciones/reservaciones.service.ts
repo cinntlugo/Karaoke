@@ -7,11 +7,33 @@ export class ReservacionesService {
 
   constructor(private http: Http) { }
 
+  lista: JSON[];
+
   reservaciones (): Promise<JSON[]> {
-    return this.http.get(`assets/reservaciones.json`)
-           .toPromise()
-           .then((respuesta) => {
-              return respuesta.json();
-           });
+    if (typeof this.lista !== 'undefined') {
+      return Promise.resolve(this.lista);
+    } else {
+      return this.http.get(`assets/reservaciones.json`)
+       .toPromise()
+       .then((respuesta) => {
+          this.lista = respuesta.json();
+          return this.lista;
+       });
+    }
+  }
+
+  agregar (reservacion) {
+    this.lista.push (reservacion);
+  }
+
+  eliminar (reservacion) {
+    let nuevaLista = [];
+    for (const r of this.lista) {
+      if (JSON.stringify(reservacion) != JSON.stringify(r)) {
+        nuevaLista.push (r);
+      }
+    }
+    this.lista = nuevaLista;
+    return this.lista;
   }
 }

@@ -10,21 +10,21 @@
   <ion-list>
     <ion-item>
       <ion-label stacked id="label">Nombre del evento</ion-label>
-      <ion-input [(ngModel)]="evento.nombre" type="text"></ion-input>
+      <ion-input [(ngModel)]="evento.nombre" type="text" name="nombre"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Fecha</ion-label>
-      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="evento.month"></ion-datetime>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="evento.month" name="fecha"></ion-datetime>
     </ion-item>
 
     <ion-item>
      <ion-label>Hora de inicio</ion-label>
-     <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.timeStarts"></ion-datetime>
+     <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.timeStarts" name="inicio"></ion-datetime>
    </ion-item>
 
    <ion-item>
      <ion-label>Hora de salida</ion-label>
-     <ion-datetime displayFormat="h:mm A" [(ngModel)]="evento.timeEnds"></ion-datetime>
+     <ion-datetime displayFormat="h:mm A" [(ngModel)]="evento.timeEnds" name="salida"></ion-datetime>
    </ion-item>
 
    <ion-list-header>
