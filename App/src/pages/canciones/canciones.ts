@@ -14,6 +14,7 @@ export class CancionesPage implements OnInit {
 
   lista: JSON[];
   actual: JSON;
+  canciones: JSON[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private servicio: CancionesService, private spotify: Spotify) {
@@ -30,7 +31,9 @@ export class CancionesPage implements OnInit {
     });
 
     this.spotify.canciones().subscribe((tracks) => {
+      this.canciones = tracks;
       console.log(tracks);
+      console.log(this.canciones);
     });
 
   }
