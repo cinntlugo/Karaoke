@@ -1,20 +1,44 @@
 page-cuenta {
 
-  .navbar {
-    padding: 0 1em;
+  .cuenta{
+    width: 100%;
+    height: auto;
+    padding: 1em 0;
+
+    h3{
+      text-align: center;
+      margin-left: 1em;
+      margin-bottom: 2em;
+      font-family: $SourceSansPro;
+      font-weight: 800;
+      color: color($colors, blanco);
+    }
   }
 
-  .cuenta {
+  .productos {
+    width: 70%;
+    display: block;
+
+    border: 3px solid color($colors, blanco);
+    border-radius: 5px;
     padding: 1em;
-
-
+    margin: 1.5em auto;
+    color: color($colors, blanco);
+    cursor: pointer;
+  }
     .nombre-producto {
-      font-size: 18px;
+      font-family: $SourceSansPro;
+      font-weight: 800;
+      font-size: 22px;
+      margin: 0;
+      margin-bottom: 0.5em;
     }
 
     .precio-producto {
-      font-size: 16px;
+      font-family: $OpenSans;
+      font-weight: 800;
+      color: color($colors, primary);
     }
 
-  }
+
 }

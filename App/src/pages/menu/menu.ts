@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { MenuService } from './menu.service';
 import { CuentaPage } from '../cuenta/cuenta';
+
 /**
  * Generated class for the MenuPage page.
  *
@@ -32,11 +33,6 @@ export class MenuPage implements OnInit {
     });
   }
 
-  agregar(producto:JSON){
-    //Implementar método para agregar productos a la cuenta
-    this.servicio.agregar(producto);
-  }
-
   cuenta(){
     this.navCtrl.push(CuentaPage);
   }
@@ -44,4 +40,10 @@ export class MenuPage implements OnInit {
   doLogout() {
     // Implementar lógica de logout
   }
+
+  agregar(producto:JSON){
+    //Implementar método para agregar productos a la cuenta
+    this.servicio.agregar(producto);
+  }
+
 }

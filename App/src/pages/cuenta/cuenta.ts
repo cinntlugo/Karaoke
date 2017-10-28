@@ -31,7 +31,7 @@ export class CuentaPage implements OnInit {
     this.ordenados=this.servicio.getOrdenados ();
     console.log(this.ordenados);
     this.total = this.ordenados.reduce ((prev, curr) => {
-      return prev+ curr.precio;
+      return prev+ curr;
     }, 0);
   }
 
