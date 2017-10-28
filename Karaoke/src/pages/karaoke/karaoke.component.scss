@@ -1,26 +1,67 @@
-  td {
-    border: 1px solid #fff;
-    padding: 1em;
-    color: #fff;
-  }
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro:400,700,900');
 
-  .row {
-    max-width: 80%;
-    margin: 0.5em auto;
+$OpenSans: "Open Sans", sans-serif;
+$SourceSansPro: "Source Sans Pro", sans-serif;
+
+td {
+  border: 1px solid #fff;
+  padding: 1em;
+  color: #fff;
+}
+
+.title{
+  font-family: $SourceSansPro;
+  color: #fff;
+}
+
+.row {
+  max-width: 80%;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+.col {
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: $SourceSansPro;
+}
+
+.item {
+  border: 3px solid #fff;
+}
+
+.table{
+  width: 31px;
+  height: 50px;
+}
+
+.topnav {
+    background-color: #FFFFFF;
+    overflow: hidden;
+    font-family: $SourceSansPro;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #A901DB;
     text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
 
-    .col {
-      align-items: center;
-      justify-content: center;
-      align-self: center;
-      color: #fff;
-      font-size: 2em;
-      font-weight: 800;
-    }
-  }
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
 
-
-
-  .item {
-    border: 3px solid #fff;
-  }
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
