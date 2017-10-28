@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 export class MenuService {
 
   constructor(private http: Http) { }
+  ordenados: JSON[] = [];
 
   bebidasYPlatillos (): Promise<JSON> {
     return this.http.get(`assets/bebidas-platillos.json`)
@@ -13,5 +14,14 @@ export class MenuService {
            .then((respuesta) => {
               return respuesta.json();
            });
+  }
+
+  agregar(producto:JSON){
+    //Implementar método para agregar productos a la cuenta
+    this.ordenados.push(producto);
+  }
+
+  getOrdenados(): JSON[]{
+    return this.ordenados;
   }
 }

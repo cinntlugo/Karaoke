@@ -32,8 +32,9 @@ export class MenuPage implements OnInit {
     });
   }
 
-  agregar(){
+  agregar(producto:JSON){
     //Implementar método para agregar productos a la cuenta
+    this.servicio.agregar(producto);
   }
 
   cuenta(){

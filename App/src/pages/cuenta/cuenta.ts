@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MenuService } from '../menu/menu.service'
 //import { MenuPage } from '../menu/menu';
 
 /**
@@ -14,13 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-cuenta',
   templateUrl: 'cuenta.html',
 })
-export class CuentaPage {
+export class CuentaPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ordenados: JSON[];
+  total: number;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CuentaPage');
   }
+
+  ngOnInit (): void {
+    this.ordenados=this.servicio.getOrdenados ();
+    console.log(this.ordenados);
+    this.total = this.ordenados.reduce ((prev, curr) => {
+      return prev+ curr.precio;
+    }, 0);
+  }
+
 
 }
