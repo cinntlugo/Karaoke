@@ -23,4 +23,8 @@ export class ComidaComponent implements OnInit {
       this.comida = respuesta;
     });
   }
+
+  redirect(pagename: string) {
+    this.router.navigate(['./admin/'+pagename]);
+  }
 }
