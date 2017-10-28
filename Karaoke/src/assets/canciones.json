@@ -2,18 +2,21 @@
   {
     "num":"1",
     "nombre":"Not Today",
+    "artista":"Shakira",
     "fecha":"6/09/2017",
     "cliente":"Ilse Mejía"
   },
   {
     "num":"2",
     "nombre":"Las mañanitas",
+    "artista":"Mariachi",
     "fecha":"8/09/2017",
     "cliente":"Daniela Quintero"
   },
   {
     "num":"3",
     "nombre":"Good Thing",
+    "artista":"Lil Wayne",
     "fecha":"8/09/2017",
     "cliente":"Santiago Villa"
   }

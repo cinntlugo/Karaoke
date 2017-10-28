@@ -17,14 +17,20 @@ import { NuevaReservacionService } from './nuevaReservacion.service';
 })
 export class NuevaReservacionPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public evento: JSON[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, servicio:NuevaReservacionService) {
+  }
+
+  ngOnInit (): void {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuevaReservacionPage');
   }
 
-  public evento = {
+  evento = {
     nombre:'',
     month: '',
     timeStarts: '',
@@ -33,9 +39,5 @@ export class NuevaReservacionPage implements OnInit {
 
   crearReservacion(){
     //Logica de crear evento y agregarlo
-  }
-
-  onInit(){
-    //
   }
 }
