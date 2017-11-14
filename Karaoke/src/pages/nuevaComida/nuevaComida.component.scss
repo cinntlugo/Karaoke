@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro:400,700,900');
+
+$OpenSans: "Open Sans", sans-serif;
+$SourceSansPro: "Source Sans Pro", sans-serif;
+
+td {
+  border: 1px solid #fff;
+  padding: 1em;
+  color: #fff;
+}
+
+.title{
+  font-family: $SourceSansPro;
+  color: #fff;
+  padding-left: 90px;
+  padding-top: 20px;
+}
+
+.row {
+  max-width: 80%;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+.col {
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: $SourceSansPro;
+}
+
+.item {
+  border: 3px solid #fff;
+}
+
+.table{
+  width: 31px;
+  height: 50px;
+}
+
+.topnav {
+    background-color: #FFFFFF;
+    overflow: hidden;
+    font-family: $SourceSansPro;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #A901DB;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #ddd;
+    color: white;
+}
+
+.header a{
+  font-family: $SourceSansPro;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #9A2EFE;
+  color: white;
+}
+
+.button{
+  font-family: $SourceSansPro;
+  background-color: Transparent;
+  color: white;
+  border: 2px solid #e7e7e7;
+  font-size: 35px;
+  border-radius: 12px;
+}
+
+.new{
+  font-family: $SourceSansPro;
+  background-color: Transparent;
+  color: white;
+  border: 0px;
+  font-size: 60px;
+  border-radius: 12px;
+}
+
+.footer {
+  font-family: $SourceSansPro;
+    position: fixed;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    height: 80px;
+    font-size: 60px;
+    background-color: Transparent;
+    color: white;
+    text-align: right;
+    margin-right: 100px;
+}
+
+.label1{
+  font-family: $SourceSansPro;
+  font-size: 30px;
+}
+
+.form{
+  font-family: $SourceSansPro;
+  font-size: 25px;
+  border: 3px solid #F2F3F4;
+  border-radius: 8px;
+  width: 100%;
+  color: #7F8C8D;
+}

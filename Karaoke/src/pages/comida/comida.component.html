@@ -29,10 +29,10 @@
           <div class="row spaced item" *ngFor="let producto of comida">
             <div class="col xs4 padded-1">{{producto.producto}}</div>
             <div class="col xs4 padded-1">${{producto.precio}}</div>
-            <div class="col xs4 padded-1"><button class="button" type="submit"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>
+            <div class="col xs4 padded-1"><button (click)="eliminar(producto)" class="button"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>
           </div>
 				</div>
 			</div>
 <div class="footer">
-  <button type="button" class=" new">+</button>
+  <button type="button" (click)="redirect('nuevaComida')" class=" new">+</button>
 </div>

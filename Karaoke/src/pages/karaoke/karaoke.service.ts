@@ -8,9 +8,23 @@ export class KaraokeService {
 
   constructor(private http: Http) { }
 
+  lista: JSON[];
+
   canciones (): Observable<JSON[]> {
     return this.http.get(`assets/canciones.json`).map ((response) => {
-      return response.json ();
+      this.lista = response.json();
+      return this.lista;
     });
+  }
+
+  eliminar (cancion) {
+    let nuevaLista = [];
+    for (const r of this.lista) {
+      if (JSON.stringify(cancion) != JSON.stringify(r)) {
+        nuevaLista.push (r);
+      }
+    }
+    this.lista = nuevaLista;
+    return this.lista;
   }
 }

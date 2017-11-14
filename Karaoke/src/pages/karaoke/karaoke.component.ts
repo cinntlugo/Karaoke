@@ -23,4 +23,8 @@ export class KaraokeComponent implements OnInit {
       this.lista = respuesta;
     });
   }
+
+  eliminar (cancion) {
+    this.lista = this.servicio.eliminar (cancion);
+  }
 }

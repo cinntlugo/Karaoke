@@ -27,4 +27,12 @@ export class ComidaComponent implements OnInit {
   redirect(pagename: string) {
     this.router.navigate(['./admin/'+pagename]);
   }
+
+  eliminar (comida) {
+    this.comida = this.servicio.eliminar (comida);
+  }
+
+  agregar (producto) {
+    this.comida.push (producto);
+  }
 }

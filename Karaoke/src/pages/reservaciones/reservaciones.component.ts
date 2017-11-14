@@ -23,4 +23,8 @@ export class ReservacionesComponent implements OnInit {
       this.reservaciones = respuesta;
     });
   }
+
+  eliminar (reservacion) {
+    this.reservaciones = this.servicio.eliminar (reservacion);
+  }
 }

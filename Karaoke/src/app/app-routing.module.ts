@@ -6,6 +6,7 @@ import { ReservacionesComponent } from '../pages/reservaciones/reservaciones.com
 import { ComidaComponent } from '../pages/comida/comida.component';
 import { CuentasComponent } from '../pages/cuentas/cuentas.component';
 import { VentasComponent } from '../pages/ventas/ventas.component';
+import { NuevaComidaComponent } from '../pages/nuevaComida/nuevaComida.component';
 import { ServiciosComponent } from '../pages/servicios/servicios.component';
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'admin/comida',     component: ComidaComponent },
   { path: 'admin/cuentas',     component: CuentasComponent},
   { path: 'admin/ventas',     component: VentasComponent },
-  { path: 'admin/servicios',     component: ServiciosComponent }
+  { path: 'admin/servicios',     component: ServiciosComponent },
+  { path: 'admin/nuevaComida',     component: NuevaComidaComponent }
 ];
 
 @NgModule({

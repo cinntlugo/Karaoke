@@ -14,6 +14,7 @@ import { ComidaComponent } from '../pages/comida/comida.component';
 import { CuentasComponent } from '../pages/cuentas/cuentas.component';
 import { ServiciosComponent } from '../pages/servicios/servicios.component';
 import { VentasComponent } from '../pages/ventas/ventas.component';
+import { NuevaComidaComponent } from '../pages/nuevaComida/nuevaComida.component';
 
 import { KaraokeService } from '../pages/karaoke/karaoke.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
@@ -55,6 +56,10 @@ RouterModule.forRoot([
   {
     path: 'admin/ventas',
     component: VentasComponent
+  },
+  {
+    path: 'admin/nuevaComida',
+    component: NuevaComidaComponent
   }
 ]);
 
@@ -67,7 +72,8 @@ RouterModule.forRoot([
     ComidaComponent,
     CuentasComponent,
     ServiciosComponent,
-    VentasComponent
+    VentasComponent,
+    NuevaComidaComponent
   ],
   imports: [
     BrowserModule,
