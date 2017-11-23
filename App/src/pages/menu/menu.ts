@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { AlertController } from 'ionic-angular';
 import { MenuService } from './menu.service';
 import { CuentaPage } from '../cuenta/cuenta';
 
@@ -20,7 +20,7 @@ export class MenuPage implements OnInit {
 
   menu: void | JSON;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController,) {
   }
 
   ionViewDidLoad() {
@@ -34,8 +34,9 @@ export class MenuPage implements OnInit {
   }
 
   cuenta(){
-    this.navCtrl.push(CuentaPage);
+  this.navCtrl.push(CuentaPage);
   }
+
 
   doLogout() {
     // Implementar lógica de logout
@@ -43,7 +44,25 @@ export class MenuPage implements OnInit {
 
   agregar(producto:JSON){
     //Implementar método para agregar productos a la cuenta
-    this.servicio.agregar(producto);
+    let confirm = this.alertCtrl.create({
+        title: `¿Desea ordenar ${producto.nombre}?`,
+        message: `Ordenar ${producto.nombre} con costo de $${producto.precio}`,
+        buttons: [
+          {
+            text: 'No',
+            handler: () => {
+              console.log('Disagree clicked');
+            }
+          },
+            {
+              text: 'Ordenar',
+              handler: () => {
+                console.log(this.order);
+                this.servicio.agregar(producto);
+              }
+            }
+          ]
+        });
+        confirm.present();
   }
-
 }
