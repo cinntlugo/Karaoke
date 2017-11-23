@@ -1,0 +1,12 @@
+{
+  "conexion_db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "karaokeDb",
+    "password": "admin",
+    "name": "conexion_db",
+    "user": "admin",
+    "connector": "mongodb"
+  }
+}

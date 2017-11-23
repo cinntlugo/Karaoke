@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "conexion_db"
+  },
+  "AccessToken": {
+    "dataSource": "conexion_db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "conexion_db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "conexion_db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "conexion_db",
+    "public": false
+  },
+  "cancion": {
+    "dataSource": "conexion_db",
+    "public": true
+  },
+  "reservacion": {
+    "dataSource": "conexion_db",
+    "public": true
+  },
+  "cuenta": {
+    "dataSource": "conexion_db",
+    "public": true
+  },
+  "alimento": {
+    "dataSource": "conexion_db",
+    "public": true
+  },
+  "usuario": {
+    "dataSource": "conexion_db",
+    "public": true
+  }
+}

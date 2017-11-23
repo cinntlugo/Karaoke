@@ -1,0 +1,38 @@
+{
+  "name": "reservacion",
+  "plural": "reservaciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "usuario": {
+      "type": "string",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "fecha": {
+      "type": "date",
+      "required": true
+    },
+    "hora": {
+      "type": "string",
+      "required": true
+    },
+    "asistentes": {
+      "type": "number",
+      "required": true
+    },
+    "comentarios":{
+      "type":"string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

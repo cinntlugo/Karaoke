@@ -1,0 +1,35 @@
+{
+  "name": "cuenta",
+  "plural": "cuentas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "usuario": {
+      "type": "string",
+      "required": true
+    },
+    "mesa": {
+      "type": "number",
+      "required": true
+    },
+    "hora": {
+      "type": "string",
+      "required": true
+    },
+    "total": {
+      "type": "number",
+      "required": true
+    },
+    "fecha": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
