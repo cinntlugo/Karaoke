@@ -15,10 +15,6 @@
       "type": "number",
       "required": true
     },
-    "hora": {
-      "type": "string",
-      "required": true
-    },
     "total": {
       "type": "number",
       "required": true
