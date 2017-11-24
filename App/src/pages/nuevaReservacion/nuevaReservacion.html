@@ -1,53 +1,33 @@
 <ion-header>
 
-  <ion-navbar color ="reser">
+  <ion-navbar class="navbar">
     <ion-title>Nueva Reservación</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content class="outer-content" id="crear">
-  <ion-list>
-    <ion-item>
+<ion-content class="bkg">
+  <ion-list class="lista">
+    <ion-item class="item-lista">
       <ion-label stacked id="label">Nombre del evento</ion-label>
-      <ion-input [(ngModel)]="evento.nombre" type="text" name="nombre"></ion-input>
+      <ion-input [(ngModel)]="evento.nombre" type="text" name="nombre" require></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item class="item-lista">
       <ion-label>Fecha</ion-label>
-      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="evento.month" name="fecha"></ion-datetime>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="evento.month" name="fecha" require></ion-datetime>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="item-lista">
      <ion-label>Hora de inicio</ion-label>
-     <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.timeStarts" name="inicio"></ion-datetime>
+     <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.timeStarts" name="inicio" require></ion-datetime>
    </ion-item>
 
-   <ion-item>
-     <ion-label>Hora de salida</ion-label>
-     <ion-datetime displayFormat="h:mm A" [(ngModel)]="evento.timeEnds" name="salida"></ion-datetime>
+   <ion-item class="item-lista">
+     <ion-label stacked id="label">Amigos</ion-label>
+     <ion-input [(ngModel)]="evento.amigos" type="number" name="amigos" require></ion-input>
    </ion-item>
 
-   <ion-list-header>
-      Amigos
-    </ion-list-header>
-    <ion-item>
-     <ion-label>Jon Snow</ion-label>
-     <ion-checkbox checked="true"></ion-checkbox>
-   </ion-item>
-
-   <ion-item>
-     <ion-label>Daenerys Targaryen</ion-label>
-     <ion-checkbox checked="true"></ion-checkbox>
-   </ion-item>
-
-   <ion-item>
-     <ion-label>Arya Stark</ion-label>
-     <ion-checkbox checked="true"></ion-checkbox>
-   </ion-item>
-   <ion-item>
-  </ion-item>
-
-   <button ion-button round (click)="crearReservacion()" >
+   <button class="boton-lista" ion-button round (click)="crearReservacion()" >
      Crear Reservación
    </button>
 

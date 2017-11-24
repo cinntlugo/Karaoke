@@ -15,7 +15,7 @@ export class NuevaReservacionPage implements OnInit {
     nombre:'',
     month: '',
     timeStarts: '',
-    timeEnds: '',
+    amigos:''
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: ReservacionesService) {
@@ -31,14 +31,15 @@ export class NuevaReservacionPage implements OnInit {
 
   crearReservacion(){
     //Logica de crear evento y agregarlo
-    this.servicio.agregar ({
+    var reservacion = {
       nombre: (<HTMLInputElement>document.querySelectorAll("input[name='nombre']")[0]).value,
       fecha: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[0]).innerText,
       hora: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[1]).innerText,
-      timeEnds: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[2]).innerText,
-      personas: (<HTMLCollection> document.querySelectorAll(".item-checkbox-checked")).length
-    });
-
-    this.navCtrl.pop ();
+      personas: (<HTMLInputElement>document.querySelectorAll("input[name='amigos']")[0]).value
+    }
+    if (reservacion.nombre && reservacion.fecha && reservacion.hora && reservacion.personas){
+      this.servicio.agregar(reservacion);
+      this.navCtrl.pop ();
+    }
   }
 }
