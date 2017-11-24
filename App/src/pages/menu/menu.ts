@@ -33,9 +33,9 @@ export class MenuPage implements OnInit {
     });
   }
 
-  cuenta(){
+  /*cuenta(){
   this.navCtrl.push(CuentaPage);
-  }
+  }*/
 
 
   doLogout() {
@@ -45,8 +45,8 @@ export class MenuPage implements OnInit {
   agregar(producto:JSON){
     //Implementar método para agregar productos a la cuenta
     let confirm = this.alertCtrl.create({
-        title: `¿Seguro de ordenar este producto?`,
-        message: `El producto se agregará a tu cuenta`,
+        title: `¿Seguro de ordenar ${producto.nombre}?`,
+        message: `El producto se agregará a tu cuenta con un costo de $${producto.precio}`,
         buttons: [
           {
             text: 'No',
@@ -59,6 +59,7 @@ export class MenuPage implements OnInit {
               handler: () => {
                 console.log('Agree clicked');
                 this.servicio.agregar(producto);
+                this.navCtrl.push(CuentaPage);
               }
             }
           ]
