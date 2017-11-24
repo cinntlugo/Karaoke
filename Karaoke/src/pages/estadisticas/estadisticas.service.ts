@@ -4,12 +4,12 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class VentasService {
+export class EstadisticasService {
 
   constructor(private http: Http) { }
 
-  ventas (): Observable<JSON[]> {
-    return this.http.get(`assets/ventas.json`).map ((response) => {
+  cuentas (): Observable<JSON[]> {
+    return this.http.get(`assets/cuentas.json`).map ((response) => {
       return response.json ();
     });
   }

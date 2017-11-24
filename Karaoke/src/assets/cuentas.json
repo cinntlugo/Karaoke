@@ -2,13 +2,19 @@
   {
     "mesa": "6",
     "cliente": "Ilse Mejia",
-    "hora": "18:00",
-    "total": 538
+    "fecha": "24/11/2017",
+    "total": 538,
+    "productos":[
+      {"alimento":"nachos"}
+    ]
   },
   {
     "mesa": "1",
     "cliente": "Andrea Gonzalez",
-    "hora": "20:00",
-    "total": 1200
+    "fecha": "24/11/2017",
+    "total": 1200,
+    "productos":[
+      {"alimento":"nachos"}
+    ]
   }
 ]

@@ -12,16 +12,14 @@ import { KaraokeComponent } from '../pages/karaoke/karaoke.component';
 import { ReservacionesComponent } from '../pages/reservaciones/reservaciones.component';
 import { ComidaComponent } from '../pages/comida/comida.component';
 import { CuentasComponent } from '../pages/cuentas/cuentas.component';
-import { ServiciosComponent } from '../pages/servicios/servicios.component';
-import { VentasComponent } from '../pages/ventas/ventas.component';
 import { NuevaComidaComponent } from '../pages/nuevaComida/nuevaComida.component';
+import { EstadisticasComponent } from '../pages/estadisticas/estadisticas.component';
 
 import { KaraokeService } from '../pages/karaoke/karaoke.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
 import { ComidaService } from '../pages/comida/comida.service';
 import { CuentasService } from '../pages/cuentas/cuentas.service';
-import { ServiciosService } from '../pages/servicios/servicios.service';
-import { VentasService } from '../pages/ventas/ventas.service';
+import { EstadisticasService } from '../pages/estadisticas/estadisticas.service';
 
 RouterModule.forRoot([
   {
@@ -50,16 +48,12 @@ RouterModule.forRoot([
     component: CuentasComponent
   },
   {
-    path: 'admin/servicios',
-    component: ServiciosComponent
-  },
-  {
-    path: 'admin/ventas',
-    component: VentasComponent
-  },
-  {
     path: 'admin/nuevaComida',
     component: NuevaComidaComponent
+  },
+  {
+    path: 'admin/estadisticas',
+    component: EstadisticasComponent
   }
 ]);
 
@@ -71,9 +65,8 @@ RouterModule.forRoot([
     ReservacionesComponent,
     ComidaComponent,
     CuentasComponent,
-    ServiciosComponent,
-    VentasComponent,
-    NuevaComidaComponent
+    NuevaComidaComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +74,7 @@ RouterModule.forRoot([
     AppRoutingModule,
     HttpModule
   ],
-  providers: [KaraokeService, ReservacionesService, ComidaService, CuentasService, ServiciosService, VentasService],
+  providers: [KaraokeService, ReservacionesService, ComidaService, CuentasService, EstadisticasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,13 +3,13 @@
 		<div class="header">
 			<a class="navbar-brand" href="admin">
 				RocKing
-				<img src="http://flaticons.net/icons/Election/Mike.png" width="40px" height="40px" class="d-inline-block align-top" alt="">
 			</a>
 		</div>
 	  <a class="active" href="/admin/reservaciones">Reservaciones</a>
 	  <a href="/admin/karaoke">Karaoke</a>
 	  <a href="/admin/comida">Comida</a>
 	  <a href="/admin/cuentas">Cuentas</a>
+		<a href="/admin/estadisticas">Estadisticas</a>
 	</div>
 				<div class="c-accordion">
 
@@ -28,7 +28,7 @@
               <p>Inicio</p>
             </div>
             <div class="col xs2 padded-1 table">
-              <p>Salida</p>
+              <p>Asistentes</p>
             </div>
             <div class="col xs2 padded-1 table">
               <p>Borrar</p>
@@ -40,7 +40,7 @@
             <div class="col xs2 padded-1">{{reservacion.cliente}}</div>
               <div class="col xs2 padded-1">{{reservacion.fecha}}</div>
             <div class="col xs2 padded-1">{{reservacion.inicio}}</div>
-						<div class="col xs2 padded-1">{{reservacion.salida}}</div>
+						<div class="col xs2 padded-1">{{reservacion.asistentes}}</div>
             <div class="col xs2 padded-1"><button (click)="eliminar(reservacion)" class="button"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>
           </div>
 				</div>

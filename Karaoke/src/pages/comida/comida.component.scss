@@ -72,8 +72,8 @@ td {
   font-family: $SourceSansPro;
   font-weight: bold;
   text-decoration: none;
-  background-color: #9A2EFE;
-  color: white;
+  color: #9A2EFE;
+  font-size: 30px;
 }
 
 .button{
@@ -86,6 +86,8 @@ td {
 }
 
 .new{
+  position: relative;
+  right: 1em;
   font-family: $SourceSansPro;
   background-color: Transparent;
   color: white;

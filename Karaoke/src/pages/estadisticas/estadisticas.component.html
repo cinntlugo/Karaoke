@@ -1,0 +1,45 @@
+<div class="bkg">
+	<div class="topnav" id="myTopnav">
+		<div class="header">
+			<a class="navbar-brand" href="admin">
+				RocKing
+			</a>
+		</div>
+	  <a href="/admin/reservaciones">Reservaciones</a>
+	  <a href="/admin/karaoke">Karaoke</a>
+	  <a href="/admin/comida">Comida</a>
+	  <a href="/admin/cuentas">Cuentas</a>
+		<a class="active" href="/admin/estadisticas">Estadisticas</a>
+	</div>
+				<div class="c-accordion">
+
+              <h1 class="title" >Estadisticas</h1>
+					<h2 class="title" >Canciones</h2>
+          <div class="row spaced">
+            <div class="col xs6 padded table">
+              <p>Cancion</p>
+            </div>
+            <div class="col xs6 padded-1 table">
+              <p>Artista</p>
+            </div>
+          </div>
+          <div class="row spaced item" *ngFor="let cuenta of cuentas">
+            <div class="col xs6 padded-1">{{cuenta.cliente}}</div>
+            <div class="col xs6 padded-1">{{cuenta.fecha}}</div>
+          </div>
+
+					<h2 class="title" >Cuentas</h2>
+					<div class="row spaced">
+            <div class="col xs6 padded-1 table">
+              <p>Cliente</p>
+            </div>
+            <div class="col xs6 padded-1 table">
+              <p>Total</p>
+            </div>
+          </div>
+          <div class="row spaced item" *ngFor="let cuenta of cuentas">
+            <div class="col xs6 padded-1">{{cuenta.cliente}}</div>
+            <div class="col xs6 padded-1">${{cuenta.total}}</div>
+          </div>
+				</div>
+			</div>

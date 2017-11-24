@@ -3,33 +3,37 @@
 		<div class="header">
 			<a class="navbar-brand" href="admin">
 				RocKing
-				<img src="http://flaticons.net/icons/Election/Mike.png" width="40px" height="40px" class="d-inline-block align-top" alt="">
 			</a>
 		</div>
 	  <a href="/admin/reservaciones">Reservaciones</a>
 	  <a href="/admin/karaoke">Karaoke</a>
 	  <a class="active" href="/admin/comida">Comida</a>
 	  <a href="/admin/cuentas">Cuentas</a>
+		<a href="/admin/estadisticas">Estadisticas</a>
 	</div>
 				<div class="c-accordion">
 
               <h1 class="title" >Comida</h1>
 
           <div class="row spaced">
-            <div class="col xs4 padded table">
+            <div class="col xs3 padded table">
               <p>Producto</p>
             </div>
-            <div class="col xs4 padded-1 table">
+            <div class="col xs3 padded-1 table">
               <p>Precio</p>
             </div>
-            <div class="col xs4 padded-1 table">
+						<div class="col xs3 padded-1 table">
+              <p>Tipo</p>
+            </div>
+            <div class="col xs3 padded-1 table">
               <p>Borrar</p>
             </div>
           </div>
           <div class="row spaced item" *ngFor="let producto of comida">
-            <div class="col xs4 padded-1">{{producto.producto}}</div>
-            <div class="col xs4 padded-1">${{producto.precio}}</div>
-            <div class="col xs4 padded-1"><button (click)="eliminar(producto)" class="button"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>
+            <div class="col xs3 padded-1">{{producto.producto}}</div>
+            <div class="col xs3 padded-1">${{producto.precio}}</div>
+						<div class="col xs3 padded-1">{{producto.tipo}}</div>
+            <div class="col xs3 padded-1"><button (click)="eliminar(producto)" class="button"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>
           </div>
 				</div>
 			</div>
