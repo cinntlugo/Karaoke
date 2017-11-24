@@ -1,10 +1,17 @@
 [
   {
     "producto":"Hamburguesa",
-    "precio":56
+    "precio":56,
+    "tipo":"Platillo"
   },
   {
     "producto":"Nachos",
-    "precio":45
+    "precio":45,
+    "tipo":"Platillo"
+  },
+  {
+    "producto":"Limonada",
+    "precio":35,
+    "tipo":"Bebida"
   }
 ]

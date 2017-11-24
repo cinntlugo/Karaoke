@@ -3,13 +3,13 @@
 		<div class="header">
 			<a class="navbar-brand" href="admin">
 				RocKing
-				<img src="http://flaticons.net/icons/Election/Mike.png" width="40px" height="40px" class="d-inline-block align-top" alt="">
 			</a>
 		</div>
 	  <a href="/admin/reservaciones">Reservaciones</a>
 	  <a href="/admin/karaoke">Karaoke</a>
 	  <a class="active" href="/admin/comida">Comida</a>
 	  <a href="/admin/cuentas">Cuentas</a>
+		<a href="/admin/cuentas">Estadisticas</a>
 	</div>
 				<div class="c-accordion">
 
@@ -17,7 +17,7 @@
 
               <div class="row spaced">
                 <div class="row spaced">
-                  <label for="name" class="label1">Name</label>
+                  <label for="name" class="label1">Nombre</label>
                 </div>
                 <div class="row spaced">
                   <input #newName type="text" class="form form-control" name="nameComida" required>
@@ -27,6 +27,15 @@
                 </div>
                 <div class="row spaced">
                   <input #newPrecio type="text" class="form form-control" name="precioComida" required>
+                </div>
+								<div class="row spaced">
+                  <label for="precio" class="label1">Tipo:</label>
+									<div class="row spaced">
+										<select class="drop">
+	  									<option class="option" value="platillo">Platillo</option>
+	  									<option class="option" value="bebida">Bebida</option>
+										</select>
+	                </div>
                 </div>
 
                 <br>

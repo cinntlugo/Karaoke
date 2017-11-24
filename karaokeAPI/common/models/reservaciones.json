@@ -26,9 +26,6 @@
     "asistentes": {
       "type": "number",
       "required": true
-    },
-    "comentarios":{
-      "type":"string"
     }
   },
   "validations": [],
