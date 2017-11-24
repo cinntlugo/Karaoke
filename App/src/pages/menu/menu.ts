@@ -19,7 +19,7 @@ import { CuentaPage } from '../cuenta/cuenta';
 export class MenuPage implements OnInit {
 
   menu: void | JSON;
-
+  orden: void | JSON;
   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController,) {
   }
 
@@ -29,6 +29,7 @@ export class MenuPage implements OnInit {
 
   ngOnInit (): void {
     this.servicio.bebidasYPlatillos ().then ((respuesta) =>  {
+      console.log(respuesta);
       this.menu = respuesta;
     });
   }
@@ -58,12 +59,18 @@ export class MenuPage implements OnInit {
               text: 'Ordenar',
               handler: () => {
                 console.log('Agree clicked');
-                this.servicio.agregar(producto);
-                this.navCtrl.push(CuentaPage);
+                this.servicio.agregar(producto).subscribe((response) => {
+                  this.navCtrl.push(CuentaPage, {
+                    'ordenados': response.productos
+                  });
+                });
+
               }
             }
           ]
         });
         confirm.present();
   }
+
+
 }

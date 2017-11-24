@@ -5,23 +5,46 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class MenuService {
 
-  constructor(private http: Http) { }
-  ordenados: JSON[] = [];
+  constructor(private http: Http) {
+    this.total = 0;
+    this.api = 'http://10.52.84.126:3000/api';
+  }
+
+
+  orden: void | JSON;
+  api: string;
 
   bebidasYPlatillos (): Promise<JSON> {
-    return this.http.get(`assets/bebidas-platillos.json`)
+    return this.http.get(`${this.api}/alimentos`)
            .toPromise()
            .then((respuesta) => {
               return respuesta.json();
            });
   }
 
-  agregar(producto:JSON){
+  agregar(producto: JSON){
     //Implementar método para agregar productos a la cuenta
-    this.ordenados.push(producto);
+
+    if (!this.orden) {
+      return this.http.post(`${this.api}/cuentas`,{
+        'productos': [producto],
+        'usuario': 'El Usuario',
+        'total': producto.precio,
+        'mesa': 0,
+        'fecha': '2017-11-24'
+      })
+      .map((response) => response.json())
+      .map((response) => this.orden = response);
+    } else {
+      this.orden.productos.push(producto);
+      this.orden.total += producto.precio;
+      return this.http.put(`${this.api}/cuentas/${this.orden.id}`,this.orden)
+      .map((response) => response.json());
+    }
+
   }
 
   getOrdenados(): JSON[]{
-    return this.ordenados;
+    return this.orden.productos;
   }
 }
