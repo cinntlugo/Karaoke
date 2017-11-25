@@ -18,7 +18,8 @@ import { CuentaPage } from '../cuenta/cuenta';
 })
 export class MenuPage implements OnInit {
 
-  menu: void | JSON;
+  bebidas: void | JSON;
+  platillos: void | JSON;
   orden: void | JSON;
   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController,) {
   }
@@ -29,15 +30,11 @@ export class MenuPage implements OnInit {
 
   ngOnInit (): void {
     this.servicio.bebidasYPlatillos ().then ((respuesta) =>  {
+      this.bebidas = respuesta.filter((e) => e.tipo === 'bebida');
+      this.platillos = respuesta.filter((e) => e.tipo === 'platillo');
       console.log(respuesta);
-      this.menu = respuesta;
     });
   }
-
-  /*cuenta(){
-  this.navCtrl.push(CuentaPage);
-  }*/
-
 
   doLogout() {
     // Implementar lógica de logout

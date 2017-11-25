@@ -23,8 +23,8 @@
   <div class="bkg">
     <div class="seccion">
       <h1 class="titulo">Platillos</h1>
-      <div class="contenedor" *ngIf="menu">
-        <div class="item" *ngFor="let producto of menu">
+      <div class="contenedor" *ngIf="platillos">
+        <div class="item" *ngFor="let producto of platillos">
           <h2 class="nombre-item">{{producto.nombre}}</h2>
           <p class="precio-item">${{producto.precio}}</p>
           <button ion-button clear item-end (click)="agregar(producto)"><ion-icon name ='add-circle'></ion-icon></button>
@@ -34,8 +34,8 @@
 
     <div class="seccion">
       <h1 class="titulo">Bebidas</h1>
-      <div class="contenedor" *ngIf="menu">
-        <div class="item" *ngFor="let producto of menu">
+      <div class="contenedor" *ngIf="bebidas">
+        <div class="item" *ngFor="let producto of bebidas">
           <h2 class="nombre-item">{{producto.nombre}}</h2>
           <p class="precio-item">${{producto.precio}}</p>
           <button ion-button clear item-end (click)="agregar(producto)"><ion-icon name ='add-circle'></ion-icon></button>
