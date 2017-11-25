@@ -6,7 +6,6 @@ import 'rxjs/add/operator/toPromise';
 export class MenuService {
 
   constructor(private http: Http) {
-    this.total = 0;
     this.api = 'http://10.52.84.126:3000/api';
   }
 
@@ -14,7 +13,7 @@ export class MenuService {
   orden: void | JSON;
   api: string;
 
-  bebidasYPlatillos (): Promise<JSON> {
+  bebidasYPlatillos (): Promise<any> {
     return this.http.get(`${this.api}/alimentos`)
            .toPromise()
            .then((respuesta) => {
@@ -22,7 +21,7 @@ export class MenuService {
            });
   }
 
-  agregar(producto: JSON){
+  agregar(producto: any){
     //Implementar método para agregar productos a la cuenta
 
     if (!this.orden) {
@@ -44,7 +43,7 @@ export class MenuService {
 
   }
 
-  getOrdenados(): JSON[]{
+  getOrdenados(): any[]{
     return this.orden.productos;
   }
 }

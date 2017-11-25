@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReservacionesPage } from '../reservaciones/reservaciones';
 import { ReservacionesService } from '../reservaciones/reservaciones.service';
+import { NuevaReservacionService } from '../nuevaReservacion/nuevaReservacion.service';
 
 
 @IonicPage()
@@ -18,7 +19,7 @@ export class NuevaReservacionPage implements OnInit {
     amigos:''
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: ReservacionesService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: NuevaReservacionService) {
   }
 
   ionViewDidLoad() {
@@ -32,13 +33,14 @@ export class NuevaReservacionPage implements OnInit {
   crearReservacion(){
     //Logica de crear evento y agregarlo
     var reservacion = {
+      usuario: 'JuanitaTieneFrio',
       nombre: (<HTMLInputElement>document.querySelectorAll("input[name='nombre']")[0]).value,
       fecha: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[0]).innerText,
       hora: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[1]).innerText,
-      personas: (<HTMLInputElement>document.querySelectorAll("input[name='amigos']")[0]).value
+      asistentes: (<HTMLInputElement>document.querySelectorAll("input[name='amigos']")[0]).value
     }
-    if (reservacion.nombre && reservacion.fecha && reservacion.hora && reservacion.personas){
-      this.servicio.agregar(reservacion);
+    if (reservacion.usuario && reservacion.nombre && reservacion.fecha && reservacion.hora && reservacion.asistentes){
+      this.servicio.agregar(reservacion).subscribe();
       this.navCtrl.pop ();
     }
   }

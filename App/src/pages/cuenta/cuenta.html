@@ -16,7 +16,7 @@
         <h3>Total: {{total}}</h3>
       <div class="productos" *ngFor="let producto of ordenados">
           <p class="nombre-producto">{{producto.nombre}}</p>
-          <p class="precio-producto">{{producto.precio}}</p>
+          <p class="precio-producto">${{producto.precio}}</p>
       </div>
     </div>
   </div>
