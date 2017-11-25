@@ -12,14 +12,14 @@ export class ComidaService {
   url="http://localhost:3000/api";
 
   comida (): Observable<JSON[]> {
-    return this.http.get(`${this.url}/alimentos`).map ((response) => {
+    return this.http.get(`${this.url}/alimentos?access_token=${localStorage.getItem('authToken')}`).map ((response) => {
       this.listaComida = response.json();
       return this.listaComida;
     });
   }
 
   eliminar (comida) {
-    return this.http.delete(`${this.url}/alimentos/${comida.id}`).map ((response) => {
+    return this.http.delete(`${this.url}/alimentos/${comida.id}?access_token=${localStorage.getItem('authToken')}`).map ((response) => {
 
       let nuevaLista = [];
       for (const r of this.listaComida) {
@@ -33,7 +33,7 @@ export class ComidaService {
 
   agregar (producto) {
     this.listaComida.push(producto);
-    return this.http.post(`${this.url}/alimentos`, producto).map ((response) => {});
+    return this.http.post(`${this.url}/alimentos?access_token=${localStorage.getItem('authToken')}`, producto).map ((response) => {});
   }
 
 }

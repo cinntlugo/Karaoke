@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CuentasService } from './cuentas.service';
-
+import { InicioService } from '../inicio/inicio.service';
 
 @Component({
   selector: 'app-cuentas',
@@ -15,7 +15,7 @@ export class CuentasComponent implements OnInit {
   cuentas: JSON[];
   productos: JSON[];
 
-  constructor (private router: Router, private servicio: CuentasService) {
+  constructor (private router: Router, private servicio: CuentasService, private inicio:InicioService) {
     this.servicio.cuentas ().subscribe ((respuesta) => {
       this.cuentas = respuesta;
     });
@@ -49,6 +49,10 @@ export class CuentasComponent implements OnInit {
         console.log("Llenar todos los campos");
         alert("Llenar todos los campos");
       }
+  }
+
+  doLogout(){
+    this.inicio.doLogout();
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { KaraokeService } from './karaoke.service';
+import { InicioService } from '../inicio/inicio.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class KaraokeComponent implements OnInit {
 
   lista: JSON[];
 
-  constructor (private router: Router, private servicio: KaraokeService) {
+  constructor (private router: Router, private servicio: KaraokeService, private inicio:InicioService) {
     this.servicio.canciones ().subscribe ((respuesta) => {
       this.lista = respuesta;
     });
@@ -31,5 +32,9 @@ export class KaraokeComponent implements OnInit {
     this.servicio.eliminar (cancion).subscribe((respuesta) =>{
       this.lista = respuesta;
     });
+  }
+
+  doLogout(){
+    this.inicio.doLogout();
   }
 }

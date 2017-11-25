@@ -12,14 +12,14 @@ export class KaraokeService {
   url="http://localhost:3000/api";
 
   canciones (): Observable<JSON[]> {
-    return this.http.get(`${this.url}/canciones`).map ((response) => {
+    return this.http.get(`${this.url}/canciones?access_token=${localStorage.getItem('authToken')}`).map ((response) => {
       this.lista = response.json();
       return this.lista;
     });
   }
 
   eliminar (cancion) {
-    return this.http.delete(`${this.url}/canciones/${cancion.id}`).map ((response) => {
+    return this.http.delete(`${this.url}/canciones/${cancion.id}?access_token=${localStorage.getItem('authToken')}`).map ((response) => {
 
       let nuevaLista = [];
       for (const r of this.lista) {

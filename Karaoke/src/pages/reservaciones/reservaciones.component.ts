@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ReservacionesService } from './reservaciones.service';
+import { InicioService } from '../inicio/inicio.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ReservacionesComponent implements OnInit {
   reservaciones: JSON[];
   buscado: JSON[];
 
-  constructor (private router: Router, private servicio: ReservacionesService) {
+  constructor (private router: Router, private servicio: ReservacionesService, private inicio:InicioService) {
     this.servicio.reservaciones ().subscribe ((respuesta) => {
       this.reservaciones = respuesta;
     });
@@ -57,5 +58,9 @@ export class ReservacionesComponent implements OnInit {
         console.log("Llenar todos los campos");
         alert("Llenar todos los campos");
       }
+  }
+
+  doLogout(){
+    this.inicio.doLogout();
   }
 }

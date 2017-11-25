@@ -13,13 +13,13 @@ export class EstadisticasService {
   top5Canciones: JSON[];
 
   cuentas (): Observable<JSON[]> {
-    return this.http.get(`${this.url}/cuentas?filter[order]=total%20DESC&filter[limit]=5`).map ((response) => {
+    return this.http.get(`${this.url}/cuentas?filter[order]=total%20DESC&filter[limit]=5&access_token=${localStorage.getItem('authToken')}`).map ((response) => {
       return response.json ();
     });
   }
 
   canciones (): Observable<JSON[]> {
-    return this.http.get(`${this.url}/canciones?filter[order]=fecha%20DESC&filter[limit]=5`).map ((response) => {
+    return this.http.get(`${this.url}/canciones?filter[order]=fecha%20DESC&filter[limit]=5&access_token=${localStorage.getItem('authToken')}`).map ((response) => {
       return response.json ();
     });
   }

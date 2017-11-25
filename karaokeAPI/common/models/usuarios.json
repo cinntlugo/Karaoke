@@ -1,7 +1,7 @@
 {
   "name": "usuario",
   "plural": "usuarios",
-  "base": "ACL",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -9,6 +9,26 @@
   "properties": {},
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+
+  ],
   "methods": {}
 }

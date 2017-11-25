@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ComidaService } from './comida.service';
-
+import { InicioService } from '../inicio/inicio.service';
 
 @Component({
   selector: 'app-comida',
@@ -14,7 +14,7 @@ export class ComidaComponent implements OnInit {
 
   comida: JSON[];
 
-  constructor (private router: Router, private servicio: ComidaService) {
+  constructor (private router: Router, private servicio: ComidaService, private inicio:InicioService) {
     this.servicio.comida ().subscribe ((respuesta) => {
       this.comida = respuesta;
     });
@@ -32,6 +32,10 @@ export class ComidaComponent implements OnInit {
     this.servicio.eliminar (comida).subscribe((respuesta) =>{
       this.comida = respuesta;
     });
+  }
+
+  doLogout(){
+    this.inicio.doLogout();
   }
 
 }

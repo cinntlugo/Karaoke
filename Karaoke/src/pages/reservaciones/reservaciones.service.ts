@@ -13,14 +13,14 @@ export class ReservacionesService {
   buscado:JSON[];
 
   reservaciones (): Observable<JSON[]> {
-    return this.http.get(`${this.url}/reservaciones`).map ((response) => {
+    return this.http.get(`${this.url}/reservaciones?access_token=${localStorage.getItem('authToken')}`).map ((response) => {
       this.listaReservaciones = response.json();
       return this.listaReservaciones;
     });
   }
 
   eliminar (reservacion) {
-    return this.http.delete(`${this.url}/reservaciones/${reservacion.id}`).map ((response) => {
+    return this.http.delete(`${this.url}/reservaciones/${reservacion.id}?access_token=${localStorage.getItem('authToken')}`).map ((response) => {
 
       let nuevaLista = [];
       for (const r of this.listaReservaciones) {
@@ -33,7 +33,7 @@ export class ReservacionesService {
   }
 
   buscar(fecha1,fecha2){
-    return this.http.get(`${this.url}/reservaciones?filter[where][fecha][between][0]=${fecha1}T00:00:00.000Z&filter[where][fecha][between][1]=${fecha2}T00:00:00.000Z`).map ((response) => {
+    return this.http.get(`${this.url}/reservaciones?filter[where][fecha][between][0]=${fecha1}T00:00:00.000Z&filter[where][fecha][between][1]=${fecha2}T24:00:00.000Z&access_token=${localStorage.getItem('authToken')}`).map ((response) => {
 
       this.buscado = response.json();
       console.log(this.buscado);

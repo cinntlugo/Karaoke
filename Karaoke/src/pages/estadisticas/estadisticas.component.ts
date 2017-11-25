@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { EstadisticasService } from './estadisticas.service';
+import { InicioService } from '../inicio/inicio.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class EstadisticasComponent implements OnInit {
   cuentas: JSON[];
   canciones: JSON[];
 
-  constructor (private router: Router, private servicio: EstadisticasService) {
+  constructor (private router: Router, private servicio: EstadisticasService, private inicio:InicioService) {
     this.servicio.cuentas ().subscribe ((respuesta) => {
       this.cuentas = respuesta;
     });
@@ -26,5 +27,9 @@ export class EstadisticasComponent implements OnInit {
 
   ngOnInit () {
 
+  }
+
+  doLogout(){
+    this.inicio.doLogout();
   }
 }
