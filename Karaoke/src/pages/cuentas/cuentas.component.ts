@@ -28,4 +28,27 @@ export class CuentasComponent implements OnInit {
     this.router.navigate(['./admin/'+pagename]);
   }
 
+  buscar(){
+
+      //Logica de crear evento y agregarlo
+      let a=(<HTMLInputElement>document.querySelectorAll("input[name='fecha1']")[0]).value;
+      let b= (<HTMLInputElement>document.querySelectorAll("input[name='fecha2']")[0]).value;
+      var fecha1 = {
+        fecha1: (<HTMLInputElement>document.querySelectorAll("input[name='fecha1']")[0]).value
+      }
+      var fecha2 = {
+        fecha2: (<HTMLInputElement>document.querySelectorAll("input[name='fecha2']")[0]).value
+      }
+      console.log(a);
+      console.log(b);
+      if (fecha1.fecha1 && fecha2.fecha2){
+        this.servicio.buscar (a,b).subscribe((respuesta) =>{
+          this.cuentas = respuesta;
+        });
+      }else{
+        console.log("Llenar todos los campos");
+        alert("Llenar todos los campos");
+      }
+  }
+
 }

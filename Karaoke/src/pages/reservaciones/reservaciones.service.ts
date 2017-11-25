@@ -10,6 +10,7 @@ export class ReservacionesService {
 
   listaReservaciones: JSON[];
   url="http://localhost:3000/api";
+  buscado:JSON[];
 
   reservaciones (): Observable<JSON[]> {
     return this.http.get(`${this.url}/reservaciones`).map ((response) => {
@@ -28,6 +29,15 @@ export class ReservacionesService {
         }
       }
       return nuevaLista;
+    });
+  }
+
+  buscar(fecha1,fecha2){
+    return this.http.get(`${this.url}/reservaciones?filter[where][fecha][between][0]=${fecha1}T00:00:00.000Z&filter[where][fecha][between][1]=${fecha2}T00:00:00.000Z`).map ((response) => {
+
+      this.buscado = response.json();
+      console.log(this.buscado);
+      return this.buscado;
     });
   }
 }
