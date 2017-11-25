@@ -35,13 +35,13 @@
             </div>
           </div>
           <div class="row spaced item" *ngFor="let reservacion of reservaciones">
-            <div class="col xs2 padded-1">{{reservacion.evento}}</div>
+            <div class="col xs2 padded-1">{{reservacion.nombre}}</div>
 
-            <div class="col xs2 padded-1">{{reservacion.cliente}}</div>
+            <div class="col xs2 padded-1">{{reservacion.usuario}}</div>
               <div class="col xs2 padded-1">{{reservacion.fecha}}</div>
-            <div class="col xs2 padded-1">{{reservacion.inicio}}</div>
+            <div class="col xs2 padded-1">{{reservacion.hora}}</div>
 						<div class="col xs2 padded-1">{{reservacion.asistentes}}</div>
-            <div class="col xs2 padded-1"><button (click)="eliminar(reservacion)" class="button"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>
+            <div class="col xs2 padded-1"><button (click)="eliminar(reservacion)" class="button"><img src="../assets/img/trash.png" width="20" height="20" alt="x" /></button></div>
           </div>
 				</div>
 			</div>

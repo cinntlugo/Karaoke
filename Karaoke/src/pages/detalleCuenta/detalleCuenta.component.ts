@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CuentasService } from './cuentas.service';
-
 
 @Component({
   selector: 'app-cuentas',
@@ -13,12 +11,9 @@ export class CuentasComponent implements OnInit {
   title = 'Cuentas';
 
   cuentas: JSON[];
-  productos: JSON[];
 
-  constructor (private router: Router, private servicio: CuentasService) {
-    this.servicio.cuentas ().subscribe ((respuesta) => {
-      this.cuentas = respuesta;
-    });
+  constructor (private router: Router) {
+    
   }
 
   ngOnInit () {

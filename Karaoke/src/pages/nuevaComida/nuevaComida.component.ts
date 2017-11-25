@@ -38,6 +38,9 @@ export class NuevaComidaComponent implements OnInit {
       if (comida.nombre && comida.precio && comida.tipo){
         this.servicio.agregar(comida).subscribe();
         this.router.navigate(['./admin/comida']);
+      }else{
+        console.log("Llenar todos los campos");
+        alert("Llenar todos los campos");
       }
   }
 

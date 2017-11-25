@@ -16,30 +16,42 @@
               <h1 class="title" >Estadisticas</h1>
 					<h2 class="title" >Canciones</h2>
           <div class="row spaced">
-            <div class="col xs6 padded table">
+						<div class="col xs2 padded table">
+
+            </div>
+						<div class="col xs2 padded table">
               <p>Cancion</p>
             </div>
-            <div class="col xs6 padded-1 table">
+            <div class="col xs4 padded-1 table">
               <p>Artista</p>
             </div>
+						<div class="col xs4 padded-1 table">
+              <p>Cliente</p>
+            </div>
           </div>
-          <div class="row spaced item" *ngFor="let cuenta of cuentas">
-            <div class="col xs6 padded-1">{{cuenta.cliente}}</div>
-            <div class="col xs6 padded-1">{{cuenta.fecha}}</div>
+          <div class="row spaced item" *ngFor="let cancion of canciones">
+						<div class="col xs2 padded-1"><img class="portada" src={{cancion.portada}} alt="Mountain View"></div>
+						<div class="col xs2 padded-1">{{cancion.nombre}}</div>
+            <div class="col xs4 padded-1">{{cancion.artista}}</div>
+						<div class="col xs4 padded-1">{{cancion.usuario}}</div>
           </div>
 
 					<h2 class="title" >Cuentas</h2>
 					<div class="row spaced">
-            <div class="col xs6 padded-1 table">
+            <div class="col xs4 padded-1 table">
               <p>Cliente</p>
             </div>
-            <div class="col xs6 padded-1 table">
+						<div class="col xs4 padded-1 table">
+              <p>Fecha</p>
+            </div>
+            <div class="col xs4 padded-1 table">
               <p>Total</p>
             </div>
           </div>
           <div class="row spaced item" *ngFor="let cuenta of cuentas">
-            <div class="col xs6 padded-1">{{cuenta.cliente}}</div>
-            <div class="col xs6 padded-1">${{cuenta.total}}</div>
+            <div class="col xs4 padded-1">{{cuenta.usuario}}</div>
+            <div class="col xs4 padded-1">{{cuenta.fecha}}</div>
+						  <div class="col xs4 padded-1">${{cuenta.total}}</div>
           </div>
 				</div>
 			</div>

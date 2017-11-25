@@ -16,7 +16,7 @@
               <h1 class="title" >Cuentas</h1>
 
           <div class="row spaced">
-            <div class="col xs3 padded table">
+            <div class="col xs2 padded table">
               <p>Mesa</p>
             </div>
             <div class="col xs3 padded-1 table">
@@ -25,15 +25,16 @@
             <div class="col xs3 padded-1 table">
               <p>Fecha</p>
             </div>
-            <div class="col xs3 padded-1 table">
+            <div class="col xs2 padded-1 table">
               <p>Total</p>
             </div>
           </div>
           <div class="row spaced item" *ngFor="let cuenta of cuentas">
-            <div class="col xs3 padded-1">{{cuenta.mesa}}</div>
-            <div class="col xs3 padded-1">{{cuenta.cliente}}</div>
+            <div class="col xs2 padded-1">{{cuenta.mesa}}</div>
+            <div class="col xs3 padded-1">{{cuenta.usuario}}</div>
             <div class="col xs3 padded-1">{{cuenta.fecha}}</div>
-            <div class="col xs3 padded-1">${{cuenta.total}}</div>
+            <div class="col xs2 padded-1">${{cuenta.total}}</div>
+
           </div>
 				</div>
 			</div>

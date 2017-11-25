@@ -13,14 +13,18 @@ export class EstadisticasComponent implements OnInit {
   title = 'Estadisticas';
 
   cuentas: JSON[];
+  canciones: JSON[];
 
   constructor (private router: Router, private servicio: EstadisticasService) {
-
-  }
-
-  ngOnInit () {
     this.servicio.cuentas ().subscribe ((respuesta) => {
       this.cuentas = respuesta;
     });
+    this.servicio.canciones ().subscribe ((respuesta) => {
+      this.canciones = respuesta;
+    });
+  }
+
+  ngOnInit () {
+
   }
 }

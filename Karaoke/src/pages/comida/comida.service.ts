@@ -18,14 +18,12 @@ export class ComidaService {
     });
   }
 
-  eliminar (cancion) {
-
-
-    return this.http.delete(`${this.url}/alimentos/${cancion.id}`).map ((response) => {
+  eliminar (comida) {
+    return this.http.delete(`${this.url}/alimentos/${comida.id}`).map ((response) => {
 
       let nuevaLista = [];
       for (const r of this.listaComida) {
-        if (JSON.stringify(cancion) != JSON.stringify(r)) {
+        if (JSON.stringify(comida) != JSON.stringify(r)) {
           nuevaLista.push (r);
         }
       }

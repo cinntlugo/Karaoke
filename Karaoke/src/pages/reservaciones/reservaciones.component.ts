@@ -15,16 +15,22 @@ export class ReservacionesComponent implements OnInit {
   reservaciones: JSON[];
 
   constructor (private router: Router, private servicio: ReservacionesService) {
-
-  }
-
-  ngOnInit () {
     this.servicio.reservaciones ().subscribe ((respuesta) => {
       this.reservaciones = respuesta;
     });
   }
 
+  ngOnInit () {
+
+  }
+
+  redirect(pagename: string) {
+    this.router.navigate(['./admin/'+pagename]);
+  }
+
   eliminar (reservacion) {
-    this.reservaciones = this.servicio.eliminar (reservacion);
+    this.servicio.eliminar (reservacion).subscribe((respuesta) =>{
+      this.reservaciones = respuesta;
+    });
   }
 }
