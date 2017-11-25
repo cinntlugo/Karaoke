@@ -20,6 +20,7 @@ import { ReservacionesService } from '../pages/reservaciones/reservaciones.servi
 import { ComidaService } from '../pages/comida/comida.service';
 import { CuentasService } from '../pages/cuentas/cuentas.service';
 import { EstadisticasService } from '../pages/estadisticas/estadisticas.service';
+import { NuevaComidaService } from '../pages/nuevaComida/nuevaComida.service';
 
 RouterModule.forRoot([
   {
@@ -74,7 +75,7 @@ RouterModule.forRoot([
     AppRoutingModule,
     HttpModule
   ],
-  providers: [KaraokeService, ReservacionesService, ComidaService, CuentasService, EstadisticasService],
+  providers: [KaraokeService, ReservacionesService, ComidaService, CuentasService, EstadisticasService, NuevaComidaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

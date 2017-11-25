@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="row spaced item" *ngFor="let producto of comida">
-            <div class="col xs3 padded-1">{{producto.producto}}</div>
+            <div class="col xs3 padded-1">{{producto.nombre}}</div>
             <div class="col xs3 padded-1">${{producto.precio}}</div>
 						<div class="col xs3 padded-1">{{producto.tipo}}</div>
             <div class="col xs3 padded-1"><button (click)="eliminar(producto)" class="button"><img src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png" width="20" height="20" alt="x" /></button></div>

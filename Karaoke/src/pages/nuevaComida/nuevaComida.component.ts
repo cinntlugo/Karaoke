@@ -26,16 +26,19 @@ export class NuevaComidaComponent implements OnInit {
     this.router.navigate(['./admin/'+pagename]);
   }
 
-  crearComida(nombre:string, precio1:string ){
+  crearComida(){
 
-    /* falta implementar agregar producto*/
-    this.servicio.agregar ({
-      producto: nombre,
-      precio:56
-    });
-
-    console.log(nombre);
-    console.log(precio1);
+      //Logica de crear evento y agregarlo
+      var comida = {
+        nombre: (<HTMLInputElement>document.querySelectorAll("input[name='nameComida']")[0]).value,
+        precio: (<HTMLInputElement>document.querySelectorAll("input[name='precioComida']")[0]).value,
+        tipo: (<HTMLSelectElement>document.querySelectorAll("select")[0]).value
+      }
+      console.log(comida);
+      if (comida.nombre && comida.precio && comida.tipo){
+        this.servicio.agregar(comida).subscribe();
+        this.router.navigate(['./admin/comida']);
+      }
   }
 
 }

@@ -9,27 +9,33 @@ export class ComidaService {
   constructor(private http: Http) { }
 
   listaComida: JSON[];
+  url="http://localhost:3000/api";
 
   comida (): Observable<JSON[]> {
-    return this.http.get(`assets/comida.json`).map ((response) => {
+    return this.http.get(`${this.url}/alimentos`).map ((response) => {
       this.listaComida = response.json();
       return this.listaComida;
     });
   }
 
   eliminar (cancion) {
-    let nuevaLista = [];
-    for (const r of this.listaComida) {
-      if (JSON.stringify(cancion) != JSON.stringify(r)) {
-        nuevaLista.push (r);
+
+
+    return this.http.delete(`${this.url}/alimentos/${cancion.id}`).map ((response) => {
+
+      let nuevaLista = [];
+      for (const r of this.listaComida) {
+        if (JSON.stringify(cancion) != JSON.stringify(r)) {
+          nuevaLista.push (r);
+        }
       }
-    }
-    this.listaComida = nuevaLista;
-    return this.listaComida;
+      return nuevaLista;
+    });
   }
 
   agregar (producto) {
-    //logica para agreagar nuevo producto
+    this.listaComida.push(producto);
+    return this.http.post(`${this.url}/alimentos`, producto).map ((response) => {});
   }
 
 }

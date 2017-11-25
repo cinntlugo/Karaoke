@@ -15,13 +15,13 @@ export class ComidaComponent implements OnInit {
   comida: JSON[];
 
   constructor (private router: Router, private servicio: ComidaService) {
-
-  }
-
-  ngOnInit () {
     this.servicio.comida ().subscribe ((respuesta) => {
       this.comida = respuesta;
     });
+  }
+
+  ngOnInit () {
+
   }
 
   redirect(pagename: string) {
@@ -29,10 +29,9 @@ export class ComidaComponent implements OnInit {
   }
 
   eliminar (comida) {
-    this.comida = this.servicio.eliminar (comida);
+    this.servicio.eliminar (comida).subscribe((respuesta) =>{
+      this.comida = respuesta;
+    });
   }
 
-  agregar (producto) {
-    this.comida.push (producto);
-  }
 }
