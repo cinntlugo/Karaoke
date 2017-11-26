@@ -10,7 +10,7 @@ export class MenuService {
   }
 
 
-  orden: void | JSON;
+  orden: void | any;
   api: string;
 
   bebidasYPlatillos (): Promise<any> {
@@ -29,8 +29,8 @@ export class MenuService {
         'productos': [producto],
         'usuario': 'El Usuario',
         'total': producto.precio,
-        'mesa': 0,
-        'fecha': '2017-11-24'
+        'mesa': 1,
+        'fecha': '2017-11-27'
       })
       .map((response) => response.json())
       .map((response) => this.orden = response);
