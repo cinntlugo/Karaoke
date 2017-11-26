@@ -16,7 +16,7 @@ export class HomeService {
   clientID: string;
   redirectURL: string;
 
-  login () {
+  login(): Promise<string> {
     return new Promise((resolve, reject) => {
         var browserRef = this.iab.create (`https://accounts.spotify.com/api/token?client_id=${this.clientID}&response_type=token&scope=` + encodeURI('playlist-read-private playlist-read-collaborative user-library-read') + `&redirect_uri=${this.redirectURL}`, "_blank", "location=no,clearsessioncache=yes,clearcache=yes");
         browserRef.on ("loadstart").subscribe ((event) => {
