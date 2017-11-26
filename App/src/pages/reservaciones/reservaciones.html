@@ -21,7 +21,7 @@
       <div class="reservacion" *ngFor="let reservacion of reservaciones">
         <h2 class="nombre-reservacion">{{reservacion.nombre}}</h2>
         <p class="fecha-reservacion">{{reservacion.fecha}} {{reservacion.hora}}</p>
-        <p class="mesa-reservacion">Mesa para {{reservacion.personas}} personas</p>
+        <p class="mesa-reservacion">Mesa para {{reservacion.asistentes}} personas</p>
         <div class="acciones-reservacion">
           <button ion-button clear (click)="eliminar(reservacion)"><ion-icon name="trash"></ion-icon></button>
         </div>

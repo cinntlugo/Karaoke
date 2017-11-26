@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {Spotify} from '../canciones/spotify';
 
 @Injectable()
 export class MenuService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private spotify: Spotify) {
     this.api = 'http://192.168.1.70:3000/api';
   }
 
@@ -27,9 +28,9 @@ export class MenuService {
     if (!this.orden) {
       return this.http.post(`${this.api}/cuentas`,{
         'productos': [producto],
-        'usuario': 'El Usuario',
+        'usuario': this.spotify.usuario,
         'total': producto.precio,
-        'mesa': 0,
+        'mesa': Math.floor(Math.random() * 20) + 1 ,
         'fecha': '2017-11-24'
       })
       .map((response) => response.json())
