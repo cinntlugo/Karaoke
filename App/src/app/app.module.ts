@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -16,6 +17,8 @@ import { ReservacionesService } from '../pages/reservaciones/reservaciones.servi
 import { KaraokeService } from '../pages/karaoke/karaoke.service';
 import { CancionesService } from '../pages/canciones/canciones.service';
 import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservacion.service';
+import { HomeService } from '../pages/home/home.service';
+import { Spotify } from '../pages/canciones/spotify';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservac
     KaraokeService,
     CancionesService,
     NuevaReservacionService,
+    HomeService,
+    InAppBrowser,
+    Spotify
   ]
 })
 export class AppModule {}
