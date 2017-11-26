@@ -19,14 +19,4 @@ export class NuevaReservacionService {
     .map((response) => {});
   }
 
-  /*eliminar (reservacion) {
-    let nuevaLista = [];
-    for (const r of this.lista) {
-      if (JSON.stringify(reservacion) != JSON.stringify(r)) {
-        nuevaLista.push (r);
-      }
-    }
-    this.lista = nuevaLista;
-    return this.lista;
-  }*/
 }
