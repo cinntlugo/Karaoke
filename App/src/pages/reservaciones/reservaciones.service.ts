@@ -52,11 +52,7 @@ export class ReservacionesService {
           nuevaLista.push (r);
         }
       }
-<<<<<<< HEAD
       this.lista=nuevaLista;
-=======
-      this.lista = nuevaLista;
->>>>>>> a1e2e89fec86c9964bc5575a2e6a34e5a2b3b483
       return this.lista;
       //return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
     });
