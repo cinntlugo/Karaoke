@@ -26,7 +26,7 @@ export class ReservacionesService {
   }
 
   agregar (reservacion) {
-    this.lista.push (reservacion);
+    this.lista.push(reservacion);
   }
 
   eliminar (reservacion) {
@@ -38,5 +38,6 @@ export class ReservacionesService {
     }
     this.lista = nuevaLista;
     return this.lista;
+    return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
   }
 }
