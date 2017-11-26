@@ -14,7 +14,6 @@ import { CuentaPage } from '../pages/cuenta/cuenta';
 
 import { MenuService } from '../pages/menu/menu.service';
 import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
-import { KaraokeService } from '../pages/karaoke/karaoke.service';
 import { CancionesService } from '../pages/canciones/canciones.service';
 import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservacion.service';
 import { HomeService } from '../pages/home/home.service';
@@ -45,7 +44,6 @@ import { Spotify } from '../pages/canciones/spotify';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MenuService,
     ReservacionesService,
-    KaraokeService,
     CancionesService,
     NuevaReservacionService,
     HomeService,

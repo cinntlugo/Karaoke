@@ -6,10 +6,11 @@ import { Http } from '@angular/http';
 export class ReservacionesService {
 
   constructor(private http: Http) {
-      this.api = 'http://localhost:3000/api';
+      this.api = 'http://192.168.1.70:3000/api';
+      this.lista = [];
   }
 
-  lista: JSON[];
+  lista: any[];
   api: string;
 
   reservaciones (): Promise<JSON[]> {
@@ -39,8 +40,13 @@ export class ReservacionesService {
           nuevaLista.push (r);
         }
       }
+<<<<<<< HEAD
       this.lista=nuevaLista;
+=======
+      this.lista = nuevaLista;
+>>>>>>> a1e2e89fec86c9964bc5575a2e6a34e5a2b3b483
       return this.lista;
+      //return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
     });
   }
 

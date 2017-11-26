@@ -16,6 +16,7 @@ export class HomePage {
 
   login() {
     this.servicio.login().then ((token) => {
+      console.log (token);
       this.spotify.setToken (token);
       this.spotify.informacion();
       this.navCtrl.push(DashboardPage);
