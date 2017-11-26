@@ -7,8 +7,7 @@ import {Spotify} from './spotify';
 @IonicPage()
 @Component({
   selector: 'page-canciones',
-  templateUrl: 'canciones.html',
-  providers: [Spotify]
+  templateUrl: 'canciones.html'
 })
 export class CancionesPage implements OnInit {
 
@@ -18,33 +17,33 @@ export class CancionesPage implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private servicio: CancionesService, private spotify: Spotify) {
-
   }
 
   ngOnInit () {
-    this.servicio.canciones ().subscribe ((respuesta) => {
-      this.lista = respuesta;
-    });
-
-    this.servicio.cancion ().subscribe ((respuesta) => {
-      this.actual = respuesta;
-    });
-
     this.spotify.canciones().subscribe((tracks) => {
       this.canciones = tracks;
-      console.log(tracks);
-      console.log(this.canciones);
     });
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CancionesPage');
   }
 
-  inscribirLista(){
-    //Implementar método para inscribir una
-    //canción a la queue del Karaoke
+  inscribirLista(cancion: any){
+    this.servicio.inscribir ({
+      "usuario": this.spotify.usuario,
+      "nombre": cancion.track.name,
+      "artista": cancion.track.artists[0].name,
+      "portada": cancion.track.album.images[0].url,
+      "fecha": (new Date()).toISOString().substring(0, 10),
+      "url": cancion.track.uri
+    }).subscribe ((c) => {
+      if (this.lista) {
+        this.lista.push (c);
+      } else {
+        this.lista = [c];
+      }
+    });
   }
 
 

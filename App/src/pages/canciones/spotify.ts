@@ -11,24 +11,27 @@ export class Spotify {
   public usuario: string;
 
   constructor(public http: Http) {
-    this.token ='BQDyxUGbdzpTE7GvEAw0j7Rx_FvkGtNGCHBMKOfuOc2WPDWMmtlaT-il_1sl8CHaAqdRYF5o2BEdngkrhFoOZr5hu12TiuZpI50-gMMH7zb0uyr40zP5v4gVhYs-C8gN6RqEyP8UwPSO6beZwn72gFE';
+
   }
 
   public setToken (token: string) {
     this.token = token;
+    console.log (this.token);
   }
 
   public informacion () {
     let headers = new Headers();
-    headers.append('authorization', 'Bearer ${this.token}');
+    headers.append('authorization', `Bearer ${this.token}`);
     return this.http.get('https://api.spotify.com/v1/me', {headers: headers}).map ((response) => {
       return response.json ();
     }).subscribe((info) => {
-      this.usuario = info.display_name;
+
+      this.usuario = info.id;
     });
   }
 
   public canciones() {
+    console.log (this.token);
       let headers = new Headers();
       headers.append('authorization', `Bearer ${this.token}`);
       return this.http.get(`https://api.spotify.com/v1/me/tracks`, {headers: headers}).map ((response) => {

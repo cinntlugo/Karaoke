@@ -26,6 +26,10 @@
     "fecha":{
       "type": "date",
       "required": true
+    },
+    "url":{
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 export class MenuService {
 
   constructor(private http: Http) {
-    this.api = 'http://localhost:3000/api';
+    this.api = 'http://192.168.1.70:3000/api';
   }
 
 
@@ -29,8 +29,8 @@ export class MenuService {
         'productos': [producto],
         'usuario': 'El Usuario',
         'total': producto.precio,
-        'mesa': 1,
-        'fecha': '2017-11-27'
+        'mesa': 0,
+        'fecha': '2017-11-24'
       })
       .map((response) => response.json())
       .map((response) => this.orden = response);

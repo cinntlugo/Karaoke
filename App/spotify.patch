@@ -1,0 +1,606 @@
+From cf0087217a9df2c1ef77cdb1e23ff0170b285954 Mon Sep 17 00:00:00 2001
+From: Unknown <aleecuellar96@gmail.com>
+Date: Sun, 26 Nov 2017 02:42:05 -0600
+Subject: [PATCH] agregar canciones de spotify
+
+---
+ App/config.xml                                     |   1 +
+ App/package-lock.json                              |  10 ++
+ App/package.json                                   | 116 ++++++++++-----------
+ App/src/app/app.module.ts                          |   2 -
+ App/src/pages/canciones/canciones.html             |   6 +-
+ App/src/pages/canciones/canciones.service.ts       |  12 ++-
+ App/src/pages/canciones/canciones.ts               |  33 +++---
+ App/src/pages/canciones/spotify.ts                 |   9 +-
+ App/src/pages/home/home.service.ts                 |   9 +-
+ App/src/pages/home/home.ts                         |   1 +
+ App/src/pages/karaoke/karaoke.service.ts           |  23 ----
+ App/src/pages/karaoke/karaoke.ts                   |  13 ++-
+ App/src/pages/menu/menu.service.ts                 |   4 +-
+ App/src/pages/menu/menu.ts                         |   8 +-
+ .../nuevaReservacion/nuevaReservacion.service.ts   |   7 +-
+ .../pages/reservaciones/reservaciones.service.ts   |  15 +--
+ karaokeAPI/common/models/alimentos.json            |  21 +++-
+ karaokeAPI/common/models/canciones.json            |   4 +
+ 18 files changed, 156 insertions(+), 138 deletions(-)
+ delete mode 100644 App/src/pages/karaoke/karaoke.service.ts
+
+diff --git a/App/config.xml b/App/config.xml
+index 8ad6757..26b1b61 100644
+--- a/App/config.xml
++++ b/App/config.xml
+@@ -83,4 +83,5 @@
+     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
+     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
++    <allow-navigation href="http://192.168.0.110:8100" />
+ </widget>
+diff --git a/App/package-lock.json b/App/package-lock.json
+index 9b018f3..d3130b6 100644
+--- a/App/package-lock.json
++++ b/App/package-lock.json
+@@ -95,6 +95,11 @@
+       "resolved": "https://registry.npmjs.org/@ionic-native/core/-/core-4.3.2.tgz",
+       "integrity": "sha512-Eaa1i7vCotyekg8yMjQSAGmXIkimga8Riddww87UhfaeAL0mOe7GlqXDWECP2yygbS8TZLGljEvoJOe3jX4DjA=="
+     },
++    "@ionic-native/in-app-browser": {
++      "version": "4.4.2",
++      "resolved": "https://registry.npmjs.org/@ionic-native/in-app-browser/-/in-app-browser-4.4.2.tgz",
++      "integrity": "sha512-F5snOEdGBNYOXhIj7RWVZhOTZa4G7vLX5Pr46/iVHKXIYXZKn2h96JhkeQGPD1+ciG4JNqPGO7jG48qDmrR/dg=="
++    },
+     "@ionic-native/splash-screen": {
+       "version": "4.3.2",
+       "resolved": "https://registry.npmjs.org/@ionic-native/splash-screen/-/splash-screen-4.3.2.tgz",
+@@ -1011,6 +1016,11 @@
+       "integrity": "sha1-4wOogrNCzD7oylE6eZmXNNqzriw=",
+       "dev": true
+     },
++    "cordova-plugin-inappbrowser": {
++      "version": "1.7.2",
++      "resolved": "https://registry.npmjs.org/cordova-plugin-inappbrowser/-/cordova-plugin-inappbrowser-1.7.2.tgz",
++      "integrity": "sha1-ZHY0lb6H6y562xoI8CCblupc7uA="
++    },
+     "core-util-is": {
+       "version": "1.0.2",
+       "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz",
+diff --git a/App/package.json b/App/package.json
+index 02a7188..7cd975e 100644
+--- a/App/package.json
++++ b/App/package.json
+@@ -1,60 +1,60 @@
+ {
+-  "name": "App",
+-  "version": "0.0.1",
+-  "author": "Ionic Framework",
+-  "homepage": "http://ionicframework.com/",
+-  "private": true,
+-  "scripts": {
+-    "clean": "ionic-app-scripts clean",
+-    "build": "ionic-app-scripts build",
+-    "lint": "ionic-app-scripts lint",
+-    "ionic:build": "ionic-app-scripts build",
+-    "ionic:serve": "ionic-app-scripts serve"
+-  },
+-  "dependencies": {
+-    "@angular/common": "4.4.3",
+-    "@angular/compiler": "4.4.3",
+-    "@angular/compiler-cli": "4.4.3",
+-    "@angular/core": "4.4.3",
+-    "@angular/forms": "4.4.3",
+-    "@angular/http": "4.4.3",
+-    "@angular/platform-browser": "4.4.3",
+-    "@angular/platform-browser-dynamic": "4.4.3",
+-    "@ionic-native/core": "4.3.2",
+-    "@ionic-native/in-app-browser": "^4.4.2",
+-    "@ionic-native/splash-screen": "4.3.2",
+-    "@ionic-native/status-bar": "4.3.2",
+-    "@ionic/storage": "2.0.1",
+-    "cordova-android": "^6.3.0",
+-    "cordova-ios": "^4.5.2",
+-    "cordova-plugin-device": "^1.1.4",
+-    "cordova-plugin-inappbrowser": "^1.7.2",
+-    "cordova-plugin-ionic-webview": "^1.1.16",
+-    "cordova-plugin-splashscreen": "^4.0.3",
+-    "cordova-plugin-whitelist": "^1.3.1",
+-    "ionic-angular": "3.7.1",
+-    "ionic-plugin-keyboard": "^2.2.1",
+-    "ionicons": "3.0.0",
+-    "rxjs": "5.4.3",
+-    "sw-toolbox": "3.6.0",
+-    "zone.js": "0.8.18"
+-  },
+-  "devDependencies": {
+-    "@ionic/app-scripts": "3.0.1",
+-    "typescript": "2.3.4"
+-  },
+-  "description": "An Ionic project",
+-  "cordova": {
+-    "plugins": {
+-      "ionic-plugin-keyboard": {},
+-      "cordova-plugin-whitelist": {},
+-      "cordova-plugin-device": {},
+-      "cordova-plugin-splashscreen": {},
+-      "cordova-plugin-ionic-webview": {},
+-      "cordova-plugin-inappbrowser": {}
++    "name": "App",
++    "version": "0.0.1",
++    "author": "Ionic Framework",
++    "homepage": "http://ionicframework.com/",
++    "private": true,
++    "scripts": {
++        "clean": "ionic-app-scripts clean",
++        "build": "ionic-app-scripts build",
++        "lint": "ionic-app-scripts lint",
++        "ionic:build": "ionic-app-scripts build",
++        "ionic:serve": "ionic-app-scripts serve"
+     },
+-    "platforms": [
+-      "android"
+-    ]
+-  }
+-}
++    "dependencies": {
++        "@angular/common": "4.4.3",
++        "@angular/compiler": "4.4.3",
++        "@angular/compiler-cli": "4.4.3",
++        "@angular/core": "4.4.3",
++        "@angular/forms": "4.4.3",
++        "@angular/http": "4.4.3",
++        "@angular/platform-browser": "4.4.3",
++        "@angular/platform-browser-dynamic": "4.4.3",
++        "@ionic-native/core": "4.3.2",
++        "@ionic-native/in-app-browser": "^4.4.2",
++        "@ionic-native/splash-screen": "4.3.2",
++        "@ionic-native/status-bar": "4.3.2",
++        "@ionic/storage": "2.0.1",
++        "cordova-android": "^6.3.0",
++        "cordova-ios": "^4.5.2",
++        "cordova-plugin-device": "^1.1.4",
++        "cordova-plugin-inappbrowser": "^1.7.2",
++        "cordova-plugin-ionic-webview": "^1.1.16",
++        "cordova-plugin-splashscreen": "^4.0.3",
++        "cordova-plugin-whitelist": "^1.3.1",
++        "ionic-angular": "3.7.1",
++        "ionic-plugin-keyboard": "^2.2.1",
++        "ionicons": "3.0.0",
++        "rxjs": "5.4.3",
++        "sw-toolbox": "3.6.0",
++        "zone.js": "0.8.18"
++    },
++    "devDependencies": {
++        "@ionic/app-scripts": "3.0.1",
++        "typescript": "2.3.4"
++    },
++    "description": "An Ionic project",
++    "cordova": {
++        "plugins": {
++            "ionic-plugin-keyboard": {},
++            "cordova-plugin-whitelist": {},
++            "cordova-plugin-device": {},
++            "cordova-plugin-splashscreen": {},
++            "cordova-plugin-ionic-webview": {},
++            "cordova-plugin-inappbrowser": {}
++        },
++        "platforms": [
++            "android"
++        ]
++    }
++}
+\ No newline at end of file
+diff --git a/App/src/app/app.module.ts b/App/src/app/app.module.ts
+index 481d3b1..388d4ce 100644
+--- a/App/src/app/app.module.ts
++++ b/App/src/app/app.module.ts
+@@ -14,7 +14,6 @@ import { CuentaPage } from '../pages/cuenta/cuenta';
+
+ import { MenuService } from '../pages/menu/menu.service';
+ import { ReservacionesService } from '../pages/reservaciones/reservaciones.service';
+-import { KaraokeService } from '../pages/karaoke/karaoke.service';
+ import { CancionesService } from '../pages/canciones/canciones.service';
+ import { NuevaReservacionService } from '../pages/nuevaReservacion/nuevaReservacion.service';
+ import { HomeService } from '../pages/home/home.service';
+@@ -45,7 +44,6 @@ import { Spotify } from '../pages/canciones/spotify';
+     {provide: ErrorHandler, useClass: IonicErrorHandler},
+     MenuService,
+     ReservacionesService,
+-    KaraokeService,
+     CancionesService,
+     NuevaReservacionService,
+     HomeService,
+diff --git a/App/src/pages/canciones/canciones.html b/App/src/pages/canciones/canciones.html
+index 701efdd..43b7b06 100644
+--- a/App/src/pages/canciones/canciones.html
++++ b/App/src/pages/canciones/canciones.html
+@@ -15,9 +15,9 @@
+     <div class="lista-cantar" *ngIf="canciones">
+       <div class="turno" *ngFor="let cancion of canciones.items">
+           <p class="nombre-cancion">{{cancion.track.name}}</p>
+-          <p class="nombre-cancion">Album:{{cancion.track.album.name}}</p>
+-          <p class="nombre-cancion">Artista:{{cancion.track.artists[0].name}}</p>
+-          <button (click)="inscribirLista()" ion-button clear><ion-icon name ='microphone'></ion-icon></button>
++          <p class="nombre-cancion">Album: {{cancion.track.album.name}}</p>
++          <p class="nombre-cancion">Artista: {{cancion.track.artists[0].name}}</p>
++          <button (click)="inscribirLista(cancion)" ion-button clear><ion-icon name ='microphone'></ion-icon></button>
+       </div>
+     </div>
+   </div>
+diff --git a/App/src/pages/canciones/canciones.service.ts b/App/src/pages/canciones/canciones.service.ts
+index 9d72b59..b0992ad 100644
+--- a/App/src/pages/canciones/canciones.service.ts
++++ b/App/src/pages/canciones/canciones.service.ts
+@@ -7,16 +7,20 @@ import 'rxjs/add/operator/map';
+ @Injectable()
+ export class CancionesService {
+
+-  constructor(private http: Http) { }
++  api: string;
++
++  constructor(private http: Http) {
++      this.api = 'http://192.168.0.110:3000/api';
++  }
+
+   canciones (): Observable<JSON[]> {
+-    return this.http.get(`assets/canciones.json`).map ((response) => {
++    return this.http.get(`${this.api}/canciones`).map ((response) => {
+       return response.json ();
+     });
+   }
+
+-  cancion (): Observable<JSON> {
+-    return this.http.get(`assets/cancion.json`).map ((response) => {
++  inscribir (cancion: any) {
++    return this.http.post(`${this.api}/canciones`, cancion).map ((response) => {
+       return response.json ();
+     });
+   }
+diff --git a/App/src/pages/canciones/canciones.ts b/App/src/pages/canciones/canciones.ts
+index 92602ab..d64e07c 100644
+--- a/App/src/pages/canciones/canciones.ts
++++ b/App/src/pages/canciones/canciones.ts
+@@ -7,8 +7,7 @@ import {Spotify} from './spotify';
+ @IonicPage()
+ @Component({
+   selector: 'page-canciones',
+-  templateUrl: 'canciones.html',
+-  providers: [Spotify]
++  templateUrl: 'canciones.html'
+ })
+ export class CancionesPage implements OnInit {
+
+@@ -18,33 +17,33 @@ export class CancionesPage implements OnInit {
+
+   constructor(public navCtrl: NavController, public navParams: NavParams,
+     private servicio: CancionesService, private spotify: Spotify) {
+-
+   }
+
+   ngOnInit () {
+-    this.servicio.canciones ().subscribe ((respuesta) => {
+-      this.lista = respuesta;
+-    });
+-
+-    this.servicio.cancion ().subscribe ((respuesta) => {
+-      this.actual = respuesta;
+-    });
+-
+     this.spotify.canciones().subscribe((tracks) => {
+       this.canciones = tracks;
+-      console.log(tracks);
+-      console.log(this.canciones);
+     });
+-
+   }
+
+   ionViewDidLoad() {
+     console.log('ionViewDidLoad CancionesPage');
+   }
+
+-  inscribirLista(){
+-    //Implementar método para inscribir una
+-    //canción a la queue del Karaoke
++  inscribirLista(cancion: any){
++    this.servicio.inscribir ({
++      "usuario": this.spotify.usuario,
++      "nombre": cancion.track.name,
++      "artista": cancion.track.artists[0].name,
++      "portada": cancion.track.album.images[0].url,
++      "fecha": (new Date()).toISOString().substring(0, 10),
++      "url": cancion.track.uri
++    }).subscribe ((c) => {
++      if (this.lista) {
++        this.lista.push (c);
++      } else {
++        this.lista = [c];
++      }
++    });
+   }
+
+
+diff --git a/App/src/pages/canciones/spotify.ts b/App/src/pages/canciones/spotify.ts
+index 2f28dcd..ad22f30 100644
+--- a/App/src/pages/canciones/spotify.ts
++++ b/App/src/pages/canciones/spotify.ts
+@@ -11,24 +11,27 @@ export class Spotify {
+   public usuario: string;
+
+   constructor(public http: Http) {
+-    this.token ='BQDyxUGbdzpTE7GvEAw0j7Rx_FvkGtNGCHBMKOfuOc2WPDWMmtlaT-il_1sl8CHaAqdRYF5o2BEdngkrhFoOZr5hu12TiuZpI50-gMMH7zb0uyr40zP5v4gVhYs-C8gN6RqEyP8UwPSO6beZwn72gFE';
++
+   }
+
+   public setToken (token: string) {
+     this.token = token;
++    console.log (this.token);
+   }
+
+   public informacion () {
+     let headers = new Headers();
+-    headers.append('authorization', 'Bearer ${this.token}');
++    headers.append('authorization', `Bearer ${this.token}`);
+     return this.http.get('https://api.spotify.com/v1/me', {headers: headers}).map ((response) => {
+       return response.json ();
+     }).subscribe((info) => {
+-      this.usuario = info.display_name;
++
++      this.usuario = info.id;
+     });
+   }
+
+   public canciones() {
++    console.log (this.token);
+       let headers = new Headers();
+       headers.append('authorization', `Bearer ${this.token}`);
+       return this.http.get(`https://api.spotify.com/v1/me/tracks`, {headers: headers}).map ((response) => {
+diff --git a/App/src/pages/home/home.service.ts b/App/src/pages/home/home.service.ts
+index d798e40..42a8b48 100644
+--- a/App/src/pages/home/home.service.ts
++++ b/App/src/pages/home/home.service.ts
+@@ -10,7 +10,7 @@ export class HomeService {
+
+   constructor(public http: Http, private iab: InAppBrowser) {
+     this.clientID = '817a4561967c4772aee5d3983c2d843f';
+-    this.redirectURL='http://localhost/';
++    this.redirectURL='http://localhost/callback';
+   }
+
+   clientID: string;
+@@ -18,11 +18,14 @@ export class HomeService {
+
+   login(): Promise<string> {
+     return new Promise((resolve, reject) => {
+-        var browserRef = this.iab.create (`https://accounts.spotify.com/api/token?client_id=${this.clientID}&response_type=token&scope=` + encodeURI('playlist-read-private playlist-read-collaborative user-library-read') + `&redirect_uri=${this.redirectURL}`, "_blank", "location=no,clearsessioncache=yes,clearcache=yes");
++        var browserRef = this.iab.create (`https://accounts.spotify.com/authorize?client_id=${this.clientID}&response_type=token&scope=` + encodeURI('playlist-read-private playlist-read-collaborative user-library-read') + `&redirect_uri=${this.redirectURL}`, "_blank", "location=no,clearsessioncache=yes,clearcache=yes");
++
+         browserRef.on ("loadstart").subscribe ((event) => {
+-            if ((event.url).indexOf(`${this.redirectURL}`) > -1) {
++            console.log(event);
++            if ((event.url).indexOf(`${this.redirectURL}`) === 0) {
+                 browserRef.close();
+                 var responseParameters = ((event.url).split("#")[1]).split("&");
++                console.log((event.url).split("?")[1]);
+                 for (var i = 0; i < responseParameters.length; i++) {
+                   if (responseParameters[i].split("=")[0] == "access_token") {
+                     resolve(responseParameters[i].split("=")[1]);
+diff --git a/App/src/pages/home/home.ts b/App/src/pages/home/home.ts
+index 19846a9..32e0c9d 100644
+--- a/App/src/pages/home/home.ts
++++ b/App/src/pages/home/home.ts
+@@ -16,6 +16,7 @@ export class HomePage {
+
+   login() {
+     this.servicio.login().then ((token) => {
++      console.log (token);
+       this.spotify.setToken (token);
+       this.spotify.informacion();
+       this.navCtrl.push(DashboardPage);
+diff --git a/App/src/pages/karaoke/karaoke.service.ts b/App/src/pages/karaoke/karaoke.service.ts
+deleted file mode 100644
+index 65ec1d3..0000000
+--- a/App/src/pages/karaoke/karaoke.service.ts
++++ /dev/null
+@@ -1,23 +0,0 @@
+-import { Injectable } from '@angular/core';
+-import { Http } from '@angular/http';
+-import {Observable} from 'rxjs/Observable';
+-import 'rxjs/add/operator/toPromise';
+-import 'rxjs/add/operator/map';
+-
+-@Injectable()
+-export class KaraokeService {
+-
+-  constructor(private http: Http) { }
+-
+-  canciones (): Observable<JSON[]> {
+-    return this.http.get(`assets/canciones.json`).map ((response) => {
+-      return response.json ();
+-    });
+-  }
+-
+-  cancion (): Observable<JSON> {
+-    return this.http.get(`assets/cancion.json`).map ((response) => {
+-      return response.json ();
+-    });
+-  }
+-}
+diff --git a/App/src/pages/karaoke/karaoke.ts b/App/src/pages/karaoke/karaoke.ts
+index baf8725..dfb27a5 100644
+--- a/App/src/pages/karaoke/karaoke.ts
++++ b/App/src/pages/karaoke/karaoke.ts
+@@ -1,7 +1,7 @@
+ import { Component, OnInit } from '@angular/core';
+ import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+-import { KaraokeService } from './karaoke.service';
++import { CancionesService } from '../canciones/canciones.service';
+ import { CancionesPage } from '../canciones/canciones';
+
+ @IonicPage()
+@@ -14,16 +14,15 @@ export class KaraokePage implements OnInit {
+   lista: JSON[];
+   actual: JSON;
+
+-  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: KaraokeService) {
++  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: CancionesService) {
+   }
+
+   ngOnInit () {
+     this.servicio.canciones ().subscribe ((respuesta) => {
+-      this.lista = respuesta;
+-    });
+-
+-    this.servicio.cancion ().subscribe ((respuesta) => {
+-      this.actual = respuesta;
++      if (respuesta.length > 0) {
++        this.actual = respuesta[0];
++        this.lista = respuesta.slice(1, respuesta.length -1);
++      }
+     });
+   }
+
+diff --git a/App/src/pages/menu/menu.service.ts b/App/src/pages/menu/menu.service.ts
+index 76da775..b21593e 100644
+--- a/App/src/pages/menu/menu.service.ts
++++ b/App/src/pages/menu/menu.service.ts
+@@ -6,11 +6,11 @@ import 'rxjs/add/operator/toPromise';
+ export class MenuService {
+
+   constructor(private http: Http) {
+-    this.api = 'http://localhost:3000/api';
++    this.api = 'http://192.168.0.110:3000/api';
+   }
+
+
+-  orden: void | JSON;
++  orden: void | any;
+   api: string;
+
+   bebidasYPlatillos (): Promise<any> {
+diff --git a/App/src/pages/menu/menu.ts b/App/src/pages/menu/menu.ts
+index fc43698..2dbe7a5 100644
+--- a/App/src/pages/menu/menu.ts
++++ b/App/src/pages/menu/menu.ts
+@@ -12,9 +12,9 @@ import { CuentaPage } from '../cuenta/cuenta';
+ })
+ export class MenuPage implements OnInit {
+
+-  bebidas: void | JSON;
+-  platillos: void | JSON;
+-  orden: void | JSON;
++  bebidas: void | any;
++  platillos: void | any;
++  orden: void | any;
+   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController,) {
+   }
+
+@@ -38,7 +38,7 @@ cuenta(){
+    this.navCtrl.push(CuentaPage);
+ }
+
+-  agregar(producto:JSON){
++  agregar(producto:any){
+     //Implementar método para agregar productos a la cuenta
+     let confirm = this.alertCtrl.create({
+         title: `¿Seguro de ordenar ${producto.nombre}?`,
+diff --git a/App/src/pages/nuevaReservacion/nuevaReservacion.service.ts b/App/src/pages/nuevaReservacion/nuevaReservacion.service.ts
+index fb64d75..6148125 100644
+--- a/App/src/pages/nuevaReservacion/nuevaReservacion.service.ts
++++ b/App/src/pages/nuevaReservacion/nuevaReservacion.service.ts
+@@ -14,7 +14,12 @@ export class NuevaReservacionService {
+   api: string;
+
+   agregar(reservacion) {
+-    this.lista.push(reservacion);
++    if (this.lista) {
++      this.lista.push(reservacion);
++    } else {
++      this.lista = [reservacion];
++    }
++
+     return this.http.post(`${this.api}/reservaciones/`,reservacion)
+     .map((response) => {});
+   }
+diff --git a/App/src/pages/reservaciones/reservaciones.service.ts b/App/src/pages/reservaciones/reservaciones.service.ts
+index 7eddce8..5fcc56b 100644
+--- a/App/src/pages/reservaciones/reservaciones.service.ts
++++ b/App/src/pages/reservaciones/reservaciones.service.ts
+@@ -6,10 +6,11 @@ import { Http } from '@angular/http';
+ export class ReservacionesService {
+
+   constructor(private http: Http) {
+-      this.api = 'http://localhost:3000/api';
++      this.api = 'http://192.168.0.110:3000/api';
++      this.lista = [];
+   }
+
+-  lista: JSON[];
++  lista: any[];
+   api: string;
+
+   reservaciones (): Promise<JSON[]> {
+@@ -39,16 +40,10 @@ export class ReservacionesService {
+           nuevaLista.push (r);
+         }
+       }
+-<<<<<<< HEAD
+-    }
+-    this.lista = nuevaLista;
+-    return this.lista;
+-    //return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
+-=======
+-      this.lista=nuevaLista;
++      this.lista = nuevaLista;
+       return this.lista;
++      //return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
+     });
+->>>>>>> ef77ad158a9151944157dbe4f20e4b0477aafb07
+   }
+
+ }
+diff --git a/karaokeAPI/common/models/alimentos.json b/karaokeAPI/common/models/alimentos.json
+index 2e68066..808038f 100644
+--- a/karaokeAPI/common/models/alimentos.json
++++ b/karaokeAPI/common/models/alimentos.json
+@@ -22,6 +22,25 @@
+   },
+   "validations": [],
+   "relations": {},
+-  "acls": [],
++  "acls": [
++    {
++      "accessType": "*",
++      "principalType": "ROLE",
++      "principalId": "$everyone",
++      "permission": "DENY"
++    },
++    {
++      "accessType": "READ",
++      "principalType": "ROLE",
++      "principalId": "$everyone",
++      "permission": "ALLOW"
++    },
++    {
++      "accessType": "WRITE",
++      "principalType": "ROLE",
++      "principalId": "$authenticated",
++      "permission": "ALLOW"
++    }
++  ],
+   "methods": {}
+ }
+diff --git a/karaokeAPI/common/models/canciones.json b/karaokeAPI/common/models/canciones.json
+index a50c20b..fb4b303 100644
+--- a/karaokeAPI/common/models/canciones.json
++++ b/karaokeAPI/common/models/canciones.json
+@@ -26,6 +26,10 @@
+     "fecha":{
+       "type": "date",
+       "required": true
++    },
++    "url": {
++      "type": "string",
++      "required": true
+     }
+   },
+   "validations": [],
+--
+2.15.0

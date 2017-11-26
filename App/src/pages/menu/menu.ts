@@ -12,9 +12,9 @@ import { CuentaPage } from '../cuenta/cuenta';
 })
 export class MenuPage implements OnInit {
 
-  bebidas: void | JSON;
-  platillos: void | JSON;
-  orden: void | JSON;
+  bebidas: void | any;
+  platillos: void | any;
+  orden: void | any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController,) {
   }
 
