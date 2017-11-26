@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReservacionesService } from './reservaciones.service';
 import { NuevaReservacionPage } from '../nuevaReservacion/nuevaReservacion';
+import {Spotify} from '../canciones/spotify';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,11 @@ export class ReservacionesPage implements OnInit {
 
   reservaciones: JSON[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: ReservacionesService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: ReservacionesService, private spotify: Spotify) {
+    this.servicio.reservaciones ().then ((respuesta) =>  {
+        this.reservaciones = respuesta.filter((id) => id.usuario == 'aleecuellar96');
+    //this.reservaciones = respuesta;
+    });
   }
 
   nueva(){
@@ -20,9 +25,7 @@ export class ReservacionesPage implements OnInit {
   }
 
   ngOnInit (): void {
-    this.servicio.reservaciones ().then ((respuesta) =>  {
-      this.reservaciones = respuesta;
-    });
+
   }
 
   ionViewDidLoad() {

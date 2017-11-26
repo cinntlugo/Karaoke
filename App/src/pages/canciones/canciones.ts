@@ -38,10 +38,10 @@ export class CancionesPage implements OnInit {
       "fecha": (new Date()).toISOString().substring(0, 10),
       "url": cancion.track.uri
     }).subscribe ((c) => {
-      if (this.lista) {
-        this.lista.push (c);
+      if (this.canciones) {
+        this.canciones.push (c);
       } else {
-        this.lista = [c];
+        this.canciones = [c];
       }
     });
   }
