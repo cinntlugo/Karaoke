@@ -38,7 +38,7 @@ cuenta(){
    this.navCtrl.push(CuentaPage);
 }
 
-  agregar(producto:JSON){
+  agregar(producto:any){
     //Implementar método para agregar productos a la cuenta
     let confirm = this.alertCtrl.create({
         title: `¿Seguro de ordenar ${producto.nombre}?`,

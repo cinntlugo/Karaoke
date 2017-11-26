@@ -6,15 +6,16 @@ import { Http } from '@angular/http';
 export class NuevaReservacionService {
 
   constructor(private http: Http) {
-    this.api = 'http://10.52.84.126:3000/api';
+    this.api = 'http://localhost:3000/api';
     this.lista = [];
   }
 
-  lista: void | JSON[];
+  lista: void | any;
   api: string;
 
   agregar(reservacion) {
     this.lista.push(reservacion);
+    console.log(reservacion);
     return this.http.post(`${this.api}/reservaciones/`,reservacion)
     .map((response) => {});
   }
