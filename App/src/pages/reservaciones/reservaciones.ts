@@ -21,7 +21,7 @@ export class ReservacionesPage implements OnInit {
 
   ngOnInit (): void {
     this.servicio.reservaciones ().then ((respuesta) =>  {
-      this.reservaciones = respuesta.filter((id) => id.usuario == 'Cinthya Lugo');
+      this.reservaciones = respuesta;
     });
   }
 
@@ -34,7 +34,9 @@ export class ReservacionesPage implements OnInit {
   }
 
   eliminar (reservacion) {
-    this.reservaciones = this.servicio.eliminar (reservacion);
+    this.servicio.eliminar (reservacion).subscribe((respuesta) =>{
+      this.reservaciones = respuesta;
+    });
   }
 
 }
