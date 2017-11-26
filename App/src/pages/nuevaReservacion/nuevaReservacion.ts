@@ -33,7 +33,7 @@ export class NuevaReservacionPage implements OnInit {
   crearReservacion(){
     //Logica de crear evento y agregarlo
     var reservacion = {
-      usuario: 'JuanitaTieneFrio',
+      usuario: 'El usuario',
       nombre: (<HTMLInputElement>document.querySelectorAll("input[name='nombre']")[0]).value,
       fecha: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[0]).innerText,
       hora: (<HTMLInputElement>document.querySelectorAll(".datetime-text")[1]).innerText,

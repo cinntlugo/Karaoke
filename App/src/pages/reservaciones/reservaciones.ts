@@ -21,7 +21,7 @@ export class ReservacionesPage implements OnInit {
 
   ngOnInit (): void {
     this.servicio.reservaciones ().then ((respuesta) =>  {
-      this.reservaciones = respuesta;
+      this.reservaciones = respuesta.filter((id) => id.usuario == 'Cinthya Lugo');
     });
   }
 

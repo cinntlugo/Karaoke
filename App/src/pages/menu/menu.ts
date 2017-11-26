@@ -4,12 +4,6 @@ import { AlertController } from 'ionic-angular';
 import { MenuService } from './menu.service';
 import { CuentaPage } from '../cuenta/cuenta';
 
-/**
- * Generated class for the MenuPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
