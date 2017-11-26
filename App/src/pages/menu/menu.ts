@@ -69,5 +69,9 @@ export class MenuPage implements OnInit {
         confirm.present();
   }
 
+  cuenta(){
+    
+  }
+
 
 }

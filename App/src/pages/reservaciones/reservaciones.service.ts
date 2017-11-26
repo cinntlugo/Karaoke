@@ -5,9 +5,12 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ReservacionesService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+      this.api = 'http://localhost:3000/api';
+  }
 
   lista: JSON[];
+  api: string;
 
   reservaciones (): Promise<JSON[]> {
     if (typeof this.lista !== 'undefined') {

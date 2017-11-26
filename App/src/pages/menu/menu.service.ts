@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 export class MenuService {
 
   constructor(private http: Http) {
-    this.api = 'http://10.52.84.126:3000/api';
+    this.api = 'http://localhost:3000/api';
   }
 
 
