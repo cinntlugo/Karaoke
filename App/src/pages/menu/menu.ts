@@ -40,6 +40,10 @@ export class MenuPage implements OnInit {
     // Implementar lógica de logout
   }
 
+cuenta(){
+   this.navCtrl.push(CuentaPage);
+}
+
   agregar(producto:JSON){
     //Implementar método para agregar productos a la cuenta
     let confirm = this.alertCtrl.create({
@@ -68,10 +72,5 @@ export class MenuPage implements OnInit {
         });
         confirm.present();
   }
-
-  cuenta(){
-    
-  }
-
 
 }
