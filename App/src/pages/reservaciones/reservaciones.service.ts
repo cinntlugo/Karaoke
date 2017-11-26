@@ -38,6 +38,6 @@ export class ReservacionesService {
     }
     this.lista = nuevaLista;
     return this.lista;
-    return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
+    //return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
   }
 }
