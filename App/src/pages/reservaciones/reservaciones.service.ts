@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 import {Spotify} from '../canciones/spotify';
 
 
@@ -13,11 +14,9 @@ export class ReservacionesService {
 
   lista: any[];
   api: string;
-  usuario:string;
 
-  reservaciones (): Promise<JSON[]> {
-    return this.http.get(`${this.api}/reservaciones`)
-    //return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${this.usuario}`)
+  reservaciones (username: String): Promise<JSON[]> {
+    return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${username}`)
      .toPromise()
      .then((respuesta) => {
         this.lista = respuesta.json();

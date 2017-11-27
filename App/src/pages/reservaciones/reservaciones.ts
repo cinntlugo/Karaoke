@@ -16,9 +16,10 @@ export class ReservacionesPage implements OnInit {
     usuario:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: ReservacionesService, private spotify: Spotify) {
-    this.servicio.reservaciones ().then ((respuesta) =>  {
+    console.log(spotify.usuario);
+    this.servicio.reservaciones ('aleecuellar96').then ((respuesta) =>  {
         //this.reservaciones = respuesta.filter((id) => id.usuario == 'aleecuellar96');
-    this.reservaciones = respuesta;
+        this.reservaciones = respuesta;
     });
   }
 
