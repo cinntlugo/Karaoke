@@ -13,12 +13,11 @@ export class ReservacionesService {
 
   lista: any[];
   api: string;
-  usuario='aleecuellar96';
+  usuario:string;
 
   reservaciones (): Promise<JSON[]> {
-        console.log(this.usuario);
     return this.http.get(`${this.api}/reservaciones`)
-    //return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=aleecuellar96`)
+    //return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${this.usuario}`)
      .toPromise()
      .then((respuesta) => {
         this.lista = respuesta.json();

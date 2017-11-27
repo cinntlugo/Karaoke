@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { MenuService } from './menu.service';
 import { CuentaPage } from '../cuenta/cuenta';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -31,7 +32,7 @@ export class MenuPage implements OnInit {
   }
 
   doLogout() {
-    // Implementar lógica de logout
+    this.navCtrl.push(HomePage);
   }
 
 cuenta(){

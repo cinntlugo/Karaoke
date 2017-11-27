@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuService } from '../menu/menu.service'
-//import { MenuPage } from '../menu/menu';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the ReservacionPage page.
@@ -25,6 +25,10 @@ export class CuentaPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CuentaPage');
+  }
+
+  doLogout() {
+    this.navCtrl.push(HomePage);
   }
 
   ngOnInit (): void {

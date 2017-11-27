@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { CancionesService } from '../canciones/canciones.service';
 import { CancionesPage } from '../canciones/canciones';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,7 @@ export class KaraokePage implements OnInit {
     this.servicio.canciones ().subscribe ((respuesta) => {
       if (respuesta.length > 0) {
         this.actual = respuesta[0];
-        this.lista = respuesta.slice(1, respuesta.length -1);
+        this.lista = respuesta.slice(1, respuesta.length);
       }
     });
   }
@@ -31,7 +32,7 @@ export class KaraokePage implements OnInit {
   }
 
   doLogout() {
-    // Implementar lógica de logout
+    this.navCtrl.push(HomePage);
   }
 
   doNavigate() {
