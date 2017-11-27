@@ -31,7 +31,7 @@ export class MenuService {
         'usuario': this.spotify.usuario,
         'total': producto.precio,
         'mesa': Math.floor(Math.random() * 20) + 1 ,
-        'fecha': '2017-11-24'
+        'fecha': (new Date()).toISOString().substring(0, 10)
       })
       .map((response) => response.json())
       .map((response) => this.orden = response);
