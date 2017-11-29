@@ -16,9 +16,14 @@ export class CuentasComponent implements OnInit {
   productos: JSON[];
 
   constructor (private router: Router, private servicio: CuentasService, private inicio:InicioService) {
-    this.servicio.cuentas ().subscribe ((respuesta) => {
-      this.cuentas = respuesta;
-    });
+    if(localStorage.getItem('authToken')){
+      this.servicio.cuentas ().subscribe ((respuesta) => {
+        this.cuentas = respuesta;
+      });
+    }else{
+      console.log('NO estas loggeado ');
+      this.redirect('');
+    }
   }
 
   ngOnInit () {

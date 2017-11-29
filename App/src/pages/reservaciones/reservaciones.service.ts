@@ -14,9 +14,12 @@ export class ReservacionesService {
 
   lista: any[];
   api: string;
+  usuario:string;
 
-  reservaciones (username: String): Promise<JSON[]> {
-    return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${username}`)
+  reservaciones (): Promise<JSON[]> {
+    console.log(this.spotify.getUsuario());
+    this.usuario='aleecuellar96';
+    return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${this.usuario}`)
      .toPromise()
      .then((respuesta) => {
         this.lista = respuesta.json();

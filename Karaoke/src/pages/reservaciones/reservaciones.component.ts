@@ -17,9 +17,14 @@ export class ReservacionesComponent implements OnInit {
   buscado: JSON[];
 
   constructor (private router: Router, private servicio: ReservacionesService, private inicio:InicioService) {
-    this.servicio.reservaciones ().subscribe ((respuesta) => {
-      this.reservaciones = respuesta;
-    });
+    if(localStorage.getItem('authToken')){
+      this.servicio.reservaciones ().subscribe ((respuesta) => {
+        this.reservaciones = respuesta;
+      });
+    }else{
+      console.log('NO estas loggeado ');
+      this.redirect('');
+    }
   }
 
   ngOnInit () {

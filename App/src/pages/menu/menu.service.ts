@@ -25,7 +25,7 @@ export class MenuService {
   agregar(producto: any){
     //Implementar método para agregar productos a la cuenta
 
-    if (!this.orden) {
+    if (!this.orden || this.orden.usuario != this.spotify.usuario) {
       return this.http.post(`${this.api}/cuentas`,{
         'productos': [producto],
         'usuario': this.spotify.usuario,

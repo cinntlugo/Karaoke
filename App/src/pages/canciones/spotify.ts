@@ -19,6 +19,10 @@ export class Spotify {
     console.log (this.token);
   }
 
+  public getUsuario(){
+    return this.usuario;
+  }
+
   public informacion () {
     let headers = new Headers();
     headers.append('authorization', `Bearer ${this.token}`);

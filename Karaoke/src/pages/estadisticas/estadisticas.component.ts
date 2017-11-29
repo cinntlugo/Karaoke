@@ -17,16 +17,27 @@ export class EstadisticasComponent implements OnInit {
   canciones: JSON[];
 
   constructor (private router: Router, private servicio: EstadisticasService, private inicio:InicioService) {
-    this.servicio.cuentas ().subscribe ((respuesta) => {
-      this.cuentas = respuesta;
-    });
-    this.servicio.canciones ().subscribe ((respuesta) => {
-      this.canciones = respuesta;
-    });
+
+    if(localStorage.getItem('authToken')){
+      this.servicio.cuentas ().subscribe ((respuesta) => {
+        this.cuentas = respuesta;
+      });
+      this.servicio.canciones ().subscribe ((respuesta) => {
+        this.canciones = respuesta;
+      });
+    }else{
+      console.log('NO estas loggeado ');
+      this.redirect('');
+    }
+
   }
 
   ngOnInit () {
 
+  }
+
+  redirect(pagename: string) {
+    this.router.navigate(['./admin/'+pagename]);
   }
 
   doLogout(){

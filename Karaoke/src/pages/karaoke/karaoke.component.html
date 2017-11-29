@@ -1,7 +1,7 @@
 <div class="bkg">
 	<div class="topnav" id="myTopnav">
 		<div class="header">
-			<a class="navbar-brand" href="admin">
+			<a class="navbar-brand">
 				RocKing
 			</a>
 		</div>
@@ -43,8 +43,12 @@
             <div class="col xs2 padded-1">{{cancion.nombre}}</div>
               <div class="col xs2 padded-1">{{cancion.artista}}</div>
             <div class="col xs2 padded-1">{{cancion.usuario}}</div>
-            <div class="col xs2 padded-1"><button class="button"><img src="../assets/img/play.png" width="20" height="20" alt="x" /></button></div>
+            <div class="col xs2 padded-1"><button (click)="play(cancion)" class="button"><img src="../assets/img/play.png" width="20" height="20" alt="x" /></button></div>
             <div class="col xs2 padded-1"><button (click)="eliminar(cancion)" class="button"><img src="../assets/img/trash.png" width="20" height="20" alt="x" /></button></div>
           </div>
+					<br>
+					<br>
+					<br>
+					<br>
 				</div>
 			</div>

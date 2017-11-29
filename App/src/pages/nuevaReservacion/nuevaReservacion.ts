@@ -31,6 +31,10 @@ export class NuevaReservacionPage implements OnInit {
 
   }
 
+  getUsuario(){
+    return this.spotify.usuario;
+  }
+
   crearReservacion(){
     //Logica de crear evento y agregarlo
     var reservacion = {

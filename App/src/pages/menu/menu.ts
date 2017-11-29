@@ -4,6 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { MenuService } from './menu.service';
 import { CuentaPage } from '../cuenta/cuenta';
 import { HomePage } from '../home/home';
+import {App} from 'ionic-angular';
 
 
 @IonicPage()
@@ -16,7 +17,7 @@ export class MenuPage implements OnInit {
   bebidas: void | any;
   platillos: void | any;
   orden: void | any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicio: MenuService, public alertCtrl: AlertController, public app:App) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +33,7 @@ export class MenuPage implements OnInit {
   }
 
   doLogout() {
-    this.navCtrl.push(HomePage);
+    this.app.getRootNav().setRoot(HomePage);
   }
 
 cuenta(){

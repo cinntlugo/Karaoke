@@ -15,7 +15,10 @@ export class NuevaComidaComponent implements OnInit {
   nuevaComida: JSON[];
 
   constructor (private router: Router, private servicio: ComidaService) {
-
+    if(!localStorage.getItem('authToken')){
+      console.log('NO estas loggeado ');
+      this.redirect('');
+    }
   }
 
   ngOnInit () {

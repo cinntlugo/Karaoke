@@ -5,6 +5,8 @@ import { KaraokePage } from '../karaoke/karaoke';
 import {Spotify} from './spotify';
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import {App} from 'ionic-angular';
+import {MenuService} from '../menu/menu.service';
 
 @IonicPage()
 @Component({
@@ -18,7 +20,7 @@ export class CancionesPage implements OnInit {
   canciones: JSON[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private servicio: CancionesService, private spotify: Spotify, public alertCtrl: AlertController) {
+    private servicio: CancionesService, private spotify: Spotify, public alertCtrl: AlertController, private app:App, private cuenta: MenuService) {
   }
 
   ngOnInit () {
@@ -29,10 +31,6 @@ export class CancionesPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CancionesPage');
-  }
-
-  doLogout() {
-    this.navCtrl.push(HomePage);
   }
 
   inscribirLista(cancion: any){
@@ -53,10 +51,14 @@ export class CancionesPage implements OnInit {
                 }).subscribe ((c) => {
                   if (this.lista) {
                     this.lista.push (c);
+                    //this.navCtrl.pop(KaraokePage);
                     this.navCtrl.push(KaraokePage);
+                    this.navCtrl.setRoot(KaraokePage);
                   } else {
                     this.lista = [c];
-                      this.navCtrl.push(KaraokePage);
+                    //this.navCtrl.pop(KaraokePage);
+                    this.navCtrl.push(KaraokePage);
+                    this.navCtrl.setRoot(KaraokePage)
                   }
                 });
 

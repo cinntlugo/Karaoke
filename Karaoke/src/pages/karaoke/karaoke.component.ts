@@ -16,12 +16,22 @@ export class KaraokeComponent implements OnInit {
   lista: JSON[];
 
   constructor (private router: Router, private servicio: KaraokeService, private inicio:InicioService) {
-    this.servicio.canciones ().subscribe ((respuesta) => {
-      this.lista = respuesta;
-    });
+    if(localStorage.getItem('authToken')){
+      this.servicio.canciones ().subscribe ((respuesta) => {
+        this.lista = respuesta;
+      });
+    }else{
+      console.log('NO estas loggeado ');
+      this.redirect('');
+    }
   }
 
   ngOnInit () {
+  }
+
+  play(cancion) {
+    this.servicio.play(cancion).subscribe(() => {
+    });
   }
 
   redirect(pagename: string) {

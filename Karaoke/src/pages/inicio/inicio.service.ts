@@ -43,7 +43,7 @@ export class InicioService {
             this.router.navigate(['./admin/karaoke']);
           }
         },
-        (error) => console.log('An error occurred:', error.status)
+        (error) => alert('Datos incorrectos')
       );
   }
 
