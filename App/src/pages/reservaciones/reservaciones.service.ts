@@ -17,31 +17,12 @@ export class ReservacionesService {
   usuario:string;
 
   reservaciones (): Promise<JSON[]> {
-    console.log(this.spotify.getUsuario());
-    this.usuario='aleecuellar96';
-    return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${this.usuario}`)
+    return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${this.spotify.getUsuario()}`)
      .toPromise()
      .then((respuesta) => {
         this.lista = respuesta.json();
-        console.log(this.lista);
         return this.lista;
      });
-    /*if (typeof this.lista !== 'undefined') {
-      return Promise.resolve(this.lista);
-    } else {
-      //return this.http.get(`${this.api}/reservaciones?filter[where][usuario]=${this.usuario}`)
-      return this.http.get(`${this.api}/reservaciones`)
-       .toPromise()
-       .then((respuesta) => {
-          this.lista = respuesta.json();
-          console.log(this.lista);
-          return this.lista;
-       });
-    }*/
-  }
-
-  agregar (reservacion) {
-    this.lista.push(reservacion);
   }
 
   eliminar (reservacion) {
@@ -55,7 +36,6 @@ export class ReservacionesService {
       }
       this.lista=nuevaLista;
       return this.lista;
-      //return this.http.delete(`${this.api}/reservaciones/`)  .map((response) => response.json ());
     });
   }
 

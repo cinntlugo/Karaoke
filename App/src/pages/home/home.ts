@@ -16,11 +16,12 @@ export class HomePage {
 
   login() {
     this.servicio.login().then ((token) => {
-      console.log (token);
       this.spotify.setToken (token);
-      this.spotify.informacion();
-      this.navCtrl.push(DashboardPage);
-    })
+      this.spotify.informacion().subscribe((info) => {
+        this.spotify.usuario = info.id;
+        this.navCtrl.push(DashboardPage);
+      });
+    });
   }
 
 }

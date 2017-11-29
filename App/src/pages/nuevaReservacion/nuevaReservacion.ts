@@ -45,8 +45,10 @@ export class NuevaReservacionPage implements OnInit {
       asistentes: (<HTMLInputElement>document.querySelectorAll("input[name='amigos']")[0]).value
     }
     if (reservacion.usuario && reservacion.nombre && reservacion.fecha && reservacion.hora && reservacion.asistentes){
-      this.servicio.agregar(reservacion).subscribe();
-      this.navCtrl.pop ();
+      this.servicio.agregar(reservacion).subscribe((reservacion) => {
+        this.navParams.get('agregar')(reservacion);
+        this.navCtrl.pop();
+      });
     }
   }
 }

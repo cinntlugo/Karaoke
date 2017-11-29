@@ -21,7 +21,7 @@ export class NuevaReservacionService {
     }
 
     return this.http.post(`${this.api}/reservaciones/`,reservacion)
-    .map((response) => {});
+    .map((response) => response.json());
   }
 
 }

@@ -20,14 +20,16 @@ export class ReservacionesPage implements OnInit {
 
   }
 
+  agregar (reservacion) {
+    this.reservaciones.push(reservacion);
+  }
+
   nueva(){
-    this.navCtrl.push("NuevaReservacionPage");
+    this.navCtrl.push("NuevaReservacionPage", {agregar: this.agregar.bind(this)});
   }
 
   ngOnInit (): void {
-    console.log(this.spotify.usuario);
     this.servicio.reservaciones ().then ((respuesta) =>  {
-        //this.reservaciones = respuesta.filter((id) => id.usuario == 'aleecuellar96');
         this.reservaciones = respuesta;
     });
   }
